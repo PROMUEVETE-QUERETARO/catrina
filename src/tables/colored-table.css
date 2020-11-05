@@ -1,0 +1,51 @@
+@import url("../core/variables.css");
+
+
+.pwfTable {
+    display: inline-table;
+}
+
+.pwfTable__cells {
+    border-radius: 10px;
+    background: var(--pwfMargin-gray3);
+    border: 2px solid var(--pwfMargin-gray3);
+    text-align: center;
+}
+
+.pwfTable__cells--Yellow {
+    background-color: var(--c-yellow2);
+    border: 2px solid var(--c-yellow1);
+}
+
+.pwfTable__cells--Orange {
+    background-color: var(--c-orange1);
+    border: 2px solid var(--pwfMargin-orange2);
+}
+
+.pwfTable__cells--Red {
+    background-color: var(--c-red1);
+    border: 2px solid var(--pwfMargin-red1);
+    color: white;
+}
+
+.pwfTable__cells--Aqua {
+    background-color: var(--c-aqua1);
+    border: 2px solid var(--pwfMargin-aqua1);
+    color: white;
+}
+
+.pwfTable__cells--Blue {
+    background-color: var(--c-blue1);
+    border: 2px solid var(--pwfMargin-blue1);
+    color: white;
+}
+
+.pwfTable__cells--White {
+    background-color: var(--pwf-gray3);
+    border: 2px solid var(--pwfMargin-gray3);
+}
+
+.pwfTable__cells--colorRed {
+    color: var(--c-red1);
+    font-weight: bold;
+}

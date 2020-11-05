@@ -1,0 +1,34 @@
+@import url("../core/variables.css");
+
+:root {
+	--notify-float-width: 100%;
+}
+
+.c__notification {
+	font-family: Armata;
+	font-size: 16px;
+	padding: 1%;
+	border-radius: 0.5rem;
+	transition: 0.5s;
+	margin: 1%;
+	text-align: center;
+	min-height: 33px;
+}
+
+.c__notification--float {
+	display: grid;
+	position: absolute;
+	width: 98%;
+	margin-left: 1%;
+	place-items: center;
+	box-shadow: var(--c-shadow-disperse-ligth);
+	border-radius: 0.5rem;
+	cursor: pointer;
+}
+
+
+@media screen and (max-width:500px) {
+	.c__notification--float {
+		height: 5.3%;
+	}
+}
