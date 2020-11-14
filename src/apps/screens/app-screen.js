@@ -1,26 +1,24 @@
 import {Module} from "./screen-module.js";
 import {salert} from "../../alerts/prebuild.js";
-import {AppHistory} from "../history.js";
 import {menu, selectButton} from "../nav-and-menu.js";
-import {ENV, APP} from "../../../main.js";
-
 
 export class AppScreen extends Module {
-    constructor(title, icon, hash, content, subScreens, options) {
-        super(title, hash, icon, ENV.screenContainer, content, options);
-        this.menuContainer = ENV.screenMenuContainer // DOM Object
+    constructor(title, nameApp, icon, hash, content, subScreens, env, options) {
+        super(title, hash, icon, env.container, content, options);
+        this.nameApp = nameApp
+        this.menuContainer = env.menuContainer // DOM Object
         this.subScreens = subScreens // []subScreen
     }
 
-    run(historyReturn) {
+    run() {
         if(this.protected){
             if (this.protected.usersType.findIndex(t => t === this.user.type) === -1) {
                 if(this.protected.strict.value){
-                    APP.runScreen(`${APP.roles.safePage.title}`)
+                    this.roles.safePage.run()
                     return
                 }
                 salert('bad', 'Inicia Sesión', 'Inicia Sesión para ver esta página', ()=>{
-                    APP.runScreen(`${APP.roles.safePage.title}`)
+                    this.roles.safePage.run()
                 })
                 return
             }
@@ -30,8 +28,7 @@ export class AppScreen extends Module {
         let titleSpace = document.getElementById('title_screen')
 
         location.hash = this.hash
-        document.title = `${this.title} | ${APP.name}`
-        AppHistory.addScreen(this.title, historyReturn)
+        document.title = `${this.title} | ${this.nameApp}`
 
         if (titleSpace) {
             titleSpace.innerText = this.title

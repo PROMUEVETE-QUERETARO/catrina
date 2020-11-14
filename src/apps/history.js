@@ -1,11 +1,8 @@
-import {APP, ENV} from "../../main.js";
-//import {appLog} from "./logs.js";
-
-
 export class AppHistory {
-    constructor(initialScreen) {
-        sessionStorage.setItem('History', initialScreen)
-        disableArrow()
+    constructor(app, button) {
+        this.app = app
+        this.button = button
+        disableArrow(this.button)
     }
 
     static addScreen(screen, returned) {
@@ -28,18 +25,18 @@ export class AppHistory {
         sessionStorage.setItem('History', h.toString())
     }
 
-    static goBack() {
+    goBack() {
         let history = sessionStorage.getItem('History').split(','),
             screen = history[0]
 
         history.shift()
-        APP.runScreen(screen, true)
+        this.app.runScreen(screen, true)
 
         if(history.length <= 0) {
-            disableArrow()
+            disableArrow(this.button)
             history.push(screen)
         } else {
-            enableArrow()
+            enableArrow(this.button)
         }
 
         sessionStorage.setItem('History', history.toString())
@@ -47,12 +44,12 @@ export class AppHistory {
 
 }
 
-const enableArrow = () =>{
-    ENV.returnButton.classList.remove('arrow_history--hidden')
-    ENV.returnButton.removeAttribute('disabled')
+const enableArrow = (button) =>{
+    button.classList.remove('arrow_history--hidden')
+    button.removeAttribute('disabled')
 }
 
-const disableArrow = () => {
-    ENV.returnButton.classList.add('arrow_history--hidden')
-    ENV.returnButton.setAttribute('disabled', 'true')
+const disableArrow = (button) => {
+    button.classList.add('arrow_history--hidden')
+    button.setAttribute('disabled', 'true')
 }

@@ -10,16 +10,16 @@ export const urlManager = (screens, safePage) => {
     for (let screen of screens) {
         if (location.hash === screen.hash) {
             screen.run()
-            new AppHistory(screen.title)
+            AppHistory.addScreen(screen.title)
             return
         }
     }
     if (typeof(safePage) !== "object") {
         screens[0].run()
-        new AppHistory(screens[0].title)
+        AppHistory.addScreen(screens[0].title)
     } else {
         safePage.run()
-        new AppHistory(safePage.title)
+        AppHistory.addScreen(safePage.title)
     }
 }
 

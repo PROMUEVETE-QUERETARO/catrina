@@ -1,7 +1,7 @@
 {
   "name": "catrina",
   "version": "1.0.0",
-  "description": "A framework for building SPAs",
+  "description": "A library for building SPAs",
   "license": "MIT",
   "keywords": [
     "SPA",
