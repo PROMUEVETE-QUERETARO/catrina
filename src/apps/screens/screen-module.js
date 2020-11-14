@@ -1,6 +1,3 @@
-import {USER, APP} from "../../../main.js";
-import {Element} from "../../core/index.js";
-
 
 export class Module {
     constructor(title, hash, icon, container, content, options) {
@@ -10,10 +7,11 @@ export class Module {
         this.container = container
         this.content = content
         this.invisible = false
-        this.user = USER
+        this.user = {}
         if (typeof options == "object"){
             this.invisible = options.invisible // bool, permite ocultar del menú un módulo, aunque no esté protegido.
             if (typeof options.protected == "object") {
+                this.user = options.protected.user
                 this.protected = {
                     usersType: options.protected.usersType, // []<string>, array con los tipos de usuarios con acceso.
                     strict: {
