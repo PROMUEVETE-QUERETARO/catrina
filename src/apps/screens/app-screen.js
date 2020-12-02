@@ -1,12 +1,12 @@
 import {Module} from "./screen-module.js";
-import {salert} from "../../alerts/prebuild.js";
+import {salert} from "../../index.js";
 import {menu, selectButton} from "../nav-and-menu.js";
 
 export class AppScreen extends Module {
     constructor(title, nameApp, icon, hash, content, subScreens, env, options) {
         super(title, hash, icon, env.container, content, options);
         this.nameApp = nameApp
-        this.menuContainer = env.menuContainer // DOM Object
+        this.menuContainer = env.screenMenuContainer // DOM Object
         this.subScreens = subScreens // []subScreen
     }
 

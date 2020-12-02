@@ -1,5 +1,5 @@
 import {Module} from "./screen-module.js";
-import {Element} from "../../core/index.js";
+import {Element} from "../../index.js";
 
 
 export class SubScreen extends Module {

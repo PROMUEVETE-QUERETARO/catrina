@@ -5,7 +5,7 @@ export class AppHistory {
         disableArrow(this.button)
     }
 
-    static addScreen(screen, returned) {
+    static addScreen(screen, returned, button) {
         if(returned) return
 
         let history = sessionStorage.getItem('History')
@@ -19,7 +19,7 @@ export class AppHistory {
         
         if(screen !== h[0]){
             h.unshift(screen)
-            if(h.length > 1) enableArrow()
+            if(h.length > 1) enableArrow(button)
         }
 
         sessionStorage.setItem('History', h.toString())

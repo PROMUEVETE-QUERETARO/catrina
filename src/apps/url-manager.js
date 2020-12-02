@@ -6,20 +6,20 @@
 //*   el primer objeto parámetro screens será definido como página segura.
 import {AppHistory} from "./history.js";
 
-export const urlManager = (screens, safePage) => {
+export const urlManager = (screens, safePage, button) => {
     for (let screen of screens) {
         if (location.hash === screen.hash) {
             screen.run()
-            AppHistory.addScreen(screen.title)
+            AppHistory.addScreen(screen.title, false, button)
             return
         }
     }
     if (typeof(safePage) !== "object") {
         screens[0].run()
-        AppHistory.addScreen(screens[0].title)
+        AppHistory.addScreen(screens[0].title, false, button)
     } else {
         safePage.run()
-        AppHistory.addScreen(safePage.title)
+        AppHistory.addScreen(safePage.title, false, button)
     }
 }
 

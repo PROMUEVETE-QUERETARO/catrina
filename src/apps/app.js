@@ -12,7 +12,7 @@ export class App {
     }
 
     run(){
-        new ScreenManager(this.screens, this.roles, this.env.menuContainer)
+        new ScreenManager(this.screens, this.roles, this.env.menuContainer, this.env.returnButton)
             .run()
         if(this.serviceWorker) {
             navigator.serviceWorker.register('./sw.js')
