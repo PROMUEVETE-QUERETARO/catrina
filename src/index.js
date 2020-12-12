@@ -12,6 +12,7 @@ export * from "./core/DOM/cssVariables.js";
 export * from "./core/numbers/random.js";
 export * from "./core/numbers/format.js";
 export * from "./core/DOM/component.js";
+export * from "./core/strings/string.js";
 export * from "./forms/form.js"
 export * from "./loaders/loader.js"
 export * from "./navbars/navbar.js"

@@ -26,9 +26,6 @@
 	cursor: pointer;
 }
 
-
-@media screen and (max-width:500px) {
-	.c__notification--float {
-		height: 5.3%;
-	}
+.c__notification__minimum {
+	font-size: 10px;
 }
