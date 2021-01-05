@@ -1,6 +1,9 @@
 # catrina
-Catrina es una librería orientada a la creación de aplicaciones web tipo SPA
+Catrina es un framework para crear aplicaciones web. Incluye sus propias 
+librerías de estilo y una API que busca ser sencilla y ligera. 
+Una vez terminado el proyecto, solo hay que ejecutar el binario, el cual se 
+encargará de crear un solo archivo js.
 
-Versión 1.1.0.2
+Versión 1.1.0.3
 
 *Documentación en progreso*...

@@ -20,14 +20,143 @@
       <path>
         <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
         <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="BRANCH:main" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:v1.1.x" type="e8cecc67:BranchNodeDescriptor" />
       </path>
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c3219186-62d7-4718-8b3b-72bb2c5d4c2b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+    <list default="true" id="c3219186-62d7-4718-8b3b-72bb2c5d4c2b" name="Default Changelist" comment="fix(app) Resolve fixes with the attribute env in class App. v1.1.0.2&#10;&#10;This attribute simplify the interaction with the DOM">
+      <change afterPath="$PROJECT_DIR$/build/main.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/catrina" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/alerts/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/alerts/alert.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/alerts/alerts.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/alerts/prebuild.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/apps/apps.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/apps/screens.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/buttons/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/buttons/button.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/buttons/buttons.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/cards/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/cards/oval-card.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/cards/product.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/DOM/component.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/DOM/cssVariables.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/DOM/elements.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/fonts-and-icons/Armata.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/fonts-and-icons/Niramit.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/fonts-and-icons/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/fonts-and-icons/armata.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/fonts-and-icons/font-awesome.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/fonts-and-icons/font-awesome/fonts/icomoon.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/fonts-and-icons/font-awesome/fonts/icomoon.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/fonts-and-icons/font-awesome/fonts/icomoon.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/fonts-and-icons/font-awesome/fonts/icomoon.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/fonts-and-icons/icomoon.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/fonts-and-icons/icomoon/fonts/icomoon.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/fonts-and-icons/icomoon/fonts/icomoon.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/fonts-and-icons/icomoon/fonts/icomoon.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/fonts-and-icons/icomoon/fonts/icomoon.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/fonts-and-icons/icons.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/fonts-and-icons/niramit.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/numbers/format.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/numbers/random.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/strings/string.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/styles.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/variables.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/footers/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/footers/black-footer.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/forms/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/forms/form.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/forms/rounded-forms.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/forms/simple-forms.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/loaders/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/loaders/loader.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/loaders/loaders.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/navbars/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/navbars/hybrid-navbar.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/navbars/navbar.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/notifications/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/notifications/notification.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/notifications/notifications.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/tables/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/tables/clear-table.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/tables/colored-table.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/tooltips/tooltip.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/tooltips/tooltips.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/alerts/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/alerts/alert.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/alerts/alerts.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/alerts/prebuild.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/apps/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/apps/app.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/apps/history.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/apps/logs.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/apps/nav-and-menu.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/apps/screen-manager.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/apps/screens/app-screen.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/apps/screens/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/apps/screens/screen-module.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/apps/screens/sub-screen.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/apps/url-manager.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/apps/user.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/buttons/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/buttons/button.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/buttons/buttons.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cards/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cards/oval-card.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cards/product.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/DOM/component.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/DOM/cssVariables.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/DOM/elements.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/fonts-and-icons/Armata.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/fonts-and-icons/Niramit.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/fonts-and-icons/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/fonts-and-icons/armata.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/fonts-and-icons/font-awesome.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/fonts-and-icons/font-awesome/fonts/icomoon.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/fonts-and-icons/font-awesome/fonts/icomoon.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/fonts-and-icons/font-awesome/fonts/icomoon.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/fonts-and-icons/font-awesome/fonts/icomoon.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/fonts-and-icons/icomoon.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/fonts-and-icons/icomoon/fonts/icomoon.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/fonts-and-icons/icomoon/fonts/icomoon.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/fonts-and-icons/icomoon/fonts/icomoon.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/fonts-and-icons/icomoon/fonts/icomoon.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/fonts-and-icons/icons.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/fonts-and-icons/niramit.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/core/export.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/numbers/format.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/numbers/random.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/strings/string.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/styles.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/variables.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/footers/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/footers/black-footer.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forms/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forms/form.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forms/rounded-forms.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forms/simple-forms.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/loaders/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/loaders/loader.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/loaders/loaders.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/navbars/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/navbars/hybrid-navbar.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/navbars/navbar.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/notifications/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/notifications/notification.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/notifications/notifications.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tables/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tables/clear-table.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tables/colored-table.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tooltips/tooltip.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tooltips/tooltips.css" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,11 +167,24 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="package.json" />
+        <option value="JavaScript File" />
+        <option value="Go File" />
       </list>
     </option>
   </component>
-  <component name="GOROOT" path="/usr/lib/go-1.15" />
+  <component name="GOROOT" url="file:///usr/lib/go" />
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="jonhteper &lt;59857862+jonhteper@users.noreply.github.com&gt;" />
+        <option value="jteper &lt;jonhteper@triamseletea.com&gt;" />
+      </list>
+    </option>
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1jsri6Oaiz5Q9MttXyZUjFcGOih" />
@@ -51,12 +193,18 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DefaultGoTemplateProperty" value="Go File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.sdk.automatically.set" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../beetle" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/lib" />
+    </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TypeScriptGeneratedFilesManager">
@@ -73,7 +221,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="main" />
+                        <option value="v1.1.x" />
                       </list>
                     </value>
                   </entry>
@@ -84,11 +232,11 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
-  <component name="WindowStateProjectService">
-    <state x="299" y="111" key="Vcs.Push.Dialog.v2" timestamp="1604603829203">
-      <screen x="0" y="26" width="1366" height="742" />
-    </state>
-    <state x="299" y="111" key="Vcs.Push.Dialog.v2/0.26.1366.742/1366.0.1366.768@0.26.1366.742" timestamp="1604603829203" />
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="fix(app) Resolve fixes with the attribute env in class App. v1.1.0.2&#10;&#10;This attribute simplify the interaction with the DOM" />
+    <MESSAGE value="feat: the floating notifications area is no longer restricted. New css class in notifications.css&#10;&#10;feat(core/strings) new function for capitalize strings.&#10;&#10;v1.1.0.3" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: the floating notifications area is no longer restricted. New css class in notifications.css&#10;&#10;feat(core/strings) new function for capitalize strings.&#10;&#10;v1.1.0.3" />
   </component>
 </project>
