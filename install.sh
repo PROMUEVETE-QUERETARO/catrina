@@ -1,6 +1,6 @@
 #!/bin/bash
-# Leer rutas
+# Get routes
 path=$(pwd)
 bashrc=/etc/bash.bashrc
-# Agregar ruta al PATH
+# Add to $PATH
 echo $PATH | grep -q "(^\|:\")$path\(:\|/\{0,1\}$\)" || echo "PATH=\$PATH:$path" >> "$bashrc"; source "$bashrc"
