@@ -23,17 +23,20 @@ const (
 	DEFAULT_PORT      = ":9095"
 	COMPILE_FILE_JS   = "catrina.js"
 	EXPORTS_FILE_PATH = "./lib/exports.js"
+	FONTS_RELATION    = "./lib/css-fonts-relation.json"
 )
 
 type Config struct {
-	Port      string `json:"serverPort"` // Puerto del servidor de pruebas.
-	MainJS    string `json:"finalFile"`  // Ruta del archivo principal javascript.
-	BuildPath string `json:"deployPath"` // Ruta donde se construirá el archivo final javascript.
-	BuildName string `json:"inputFile"`  // Nombre del archivo final.
+	Port      string `json:"serverPort"`   // port of proof server.
+	MainJS    string `json:"inputFileJS"`  // input file javascript location.
+	MainCSS   string `json:"inputFileCSS"` // input file css location.
+	BuildPath string `json:"deployPath"`   // path where final files will build and where start the proof server.
+	BuildJS   string `json:"finalFileJS"`  // final javascript filename.
+	BuildCSS  string `json:"finalFileCSS"` // final css filename.
 }
 
 func (config *Config) Set(file *os.File) error {
-	data, err := json.Marshal(config)
+	data, err := json.MarshalIndent(config, "", "  ")
 	if err != nil {
 		return err
 	}
@@ -46,6 +49,16 @@ func (config *Config) Set(file *os.File) error {
 type Import struct {
 	names []string
 	path  string
+}
+
+type ImportCSS struct {
+	path  string
+	lines []int
+}
+
+type RelationCSSFont struct {
+	Name string `json:"name"`
+	Path string `json:"path"`
 }
 
 func compileCatrinaJS(exports *os.File) ([]Import, error) {
@@ -87,7 +100,7 @@ func compileCatrinaJS(exports *os.File) ([]Import, error) {
 	return directory, nil
 }
 
-func getImports(file *os.File, list []string) ([]string, []int) {
+func getImportsJS(file *os.File, list []string) ([]string, []int) {
 	var lines []int
 	scanner := bufio.NewScanner(file)
 	n := 1
@@ -98,6 +111,24 @@ func getImports(file *os.File, list []string) ([]string, []int) {
 			for _, v := range names {
 				list = core.SafeAppend(list, v)
 			}
+			lines = append(lines, n)
+		}
+		n++
+	}
+
+	return list, lines
+}
+
+func getImportsCSS(file *os.File, list []string) ([]string, []int) {
+	var lines []int
+	scanner := bufio.NewScanner(file)
+	n := 1
+	for scanner.Scan() {
+		if line := scanner.Text(); strings.Contains(line, "@import") {
+			s := strings.Split(line, " ")
+			_imp := strings.ReplaceAll(s[1][1:len(s[1])-2], "lib", "")
+			imp := path.Join("/", _imp)
+			list = core.SafeAppend(list, path.Join("./lib", path.Clean(imp)))
 			lines = append(lines, n)
 		}
 		n++
@@ -120,8 +151,8 @@ func evaluateLine(s string, names []string) bool {
 	return false
 }
 
-func writeImports(reference, build *os.File, names []string) error {
-	scanner := bufio.NewScanner(reference)
+func writeImportsJS(ref, build *os.File, names []string) error {
+	scanner := bufio.NewScanner(ref)
 	ev := false
 	for scanner.Scan() {
 		if line := scanner.Text(); evaluateLine(line, names) || ev {
@@ -141,6 +172,47 @@ func writeImports(reference, build *os.File, names []string) error {
 	}
 
 	return nil
+}
+
+func writeImportsCSSAndCopyFonts(build *os.File, list []string, config Config) error {
+	var err error
+	var directory []RelationCSSFont
+	_, err = addons.ReadJSONFile(FONTS_RELATION, &directory)
+	if err != nil {
+		return err
+	}
+
+	for _, v := range list {
+		data, err := ioutil.ReadFile(v)
+		if err != nil {
+			return err
+		}
+
+		lines := strings.Split(string(data), "\n")
+		for i, v := range lines {
+			if strings.Contains(v, "@import") {
+				lines[i] = ""
+			}
+		}
+		content := strings.Join(lines, "\n")
+
+		_, err = build.WriteString(content)
+		if err != nil {
+			return err
+		}
+
+		for _, font := range directory {
+			if font.Name == path.Base(v) {
+				err = c.Copy(font.Path, path.Join(config.BuildPath, path.Base(font.Path)))
+				if err != nil {
+					return err
+				}
+			}
+		}
+
+	}
+
+	return err
 }
 
 func writeFinalFileJS(file *os.File, inputFile string, lines []int) error {
@@ -182,7 +254,7 @@ func build(config Config) error {
 	}
 	defer inputFile.Close()
 
-	imports, lines := getImports(inputFile, []string{})
+	imports, lines := getImportsJS(inputFile, []string{})
 	var files []string
 	for _, v := range imports {
 		for _, imp := range directory {
@@ -199,11 +271,11 @@ func build(config Config) error {
 		if err != nil {
 			return err
 		}
-		imports, _ = getImports(f, imports)
+		imports, _ = getImportsJS(f, imports)
 		_ = f.Close()
 	}
 
-	finalJS := path.Join(config.BuildPath, config.BuildName)
+	finalJS := path.Join(config.BuildPath, config.BuildJS)
 	_ = os.Remove(finalJS)
 
 	buildFilePath := "./temp/main.build.js"
@@ -219,7 +291,7 @@ func build(config Config) error {
 		return err
 	}
 
-	err = writeImports(catrinaJS, buildFile, imports)
+	err = writeImportsJS(catrinaJS, buildFile, imports)
 	if err != nil {
 		return err
 	}
@@ -234,121 +306,153 @@ func build(config Config) error {
 		return err
 	}
 
+	inputFileCSS, err := os.Open(config.MainCSS)
+	if err != nil {
+		return err
+	}
+	defer inputFileCSS.Close()
+
+	imports, lines = getImportsCSS(inputFileCSS, []string{})
+
+	buildFilePathCSS := "./temp/styles.build.css"
+
+	buildFileCSS, err := os.OpenFile(buildFilePathCSS, os.O_CREATE|os.O_RDWR|os.O_APPEND, 0755)
+	if err != nil {
+		return err
+	}
+	defer buildFileCSS.Close()
+
+	var imp []string
+	for _, v := range imports {
+		f, err := os.Open(v)
+		if err != nil {
+			return err
+		}
+
+		imp, _ = getImportsCSS(f, imp)
+
+		_ = f.Close()
+	}
+
+	for _, v := range imp {
+		imports = core.SafeAppend(imports, v)
+	}
+
+	err = writeImportsCSSAndCopyFonts(buildFileCSS, imports, config)
+	if err != nil {
+		return err
+	}
+
+	err = writeFinalFileJS(buildFileCSS, config.MainCSS, lines)
+	if err != nil {
+		return err
+	}
+
+	err = os.Rename(buildFilePathCSS, path.Join(config.BuildPath, config.BuildCSS))
+
 	_ = os.RemoveAll("temp")
 	return err
 }
 
-func setupWizard(r, projectPath string) error {
+func setupWizard(r string) (config Config, err error) {
 	const exitMsj = "(type 'exit' to close)"
-	file, err := os.OpenFile(path.Join(projectPath, CONFIG_FILE), os.O_CREATE|os.O_RDWR|os.O_APPEND, 0755)
-	if err != nil {
-		return err
-	}
-	defer file.Close()
 
-	config := Config{Port: DEFAULT_PORT}
+	config.Port = DEFAULT_PORT
 
 	if r != "y" {
-		err = config.Set(file)
-		return err
+		return
 	}
 
 	fmt.Printf("Set deploy path:%v\n", exitMsj)
 	_, err = fmt.Scan(&r)
 	if err != nil || r == "exit" {
-		_ = config.Set(file)
-		return err
+		return
 	}
 	config.BuildPath = r
 
-	fmt.Printf("Set final filename:%v\n", exitMsj)
+	fmt.Printf("Set final javascript filename:%v\n", exitMsj)
 	_, err = fmt.Scan(&r)
 	if err != nil || r == "exit" {
-		_ = config.Set(file)
-		return err
+		return
 	}
-	config.BuildName = r
+	config.BuildJS = r
 
-	fmt.Printf("Set path of input filename:%v\n", exitMsj)
+	fmt.Printf("Set final css filename:%v\n", exitMsj)
 	_, err = fmt.Scan(&r)
 	if err != nil || r == "exit" {
-		_ = config.Set(file)
-		return err
+		return
+	}
+	config.BuildCSS = r
+
+	fmt.Printf("Set path of input javascript filename:%v\n", exitMsj)
+	_, err = fmt.Scan(&r)
+	if err != nil || r == "exit" {
+		return
 	}
 	config.MainJS = r
+
+	fmt.Printf("Set path of input css filename:%v\n", exitMsj)
+	_, err = fmt.Scan(&r)
+	if err != nil || r == "exit" {
+		return
+	}
+	config.MainCSS = r
 
 	fmt.Println("Set port of trial server?:(y/n)")
 	_, err = fmt.Scan(&r)
 	if err != nil {
-		_ = config.Set(file)
-		return err
+		return
 	}
 	if r == "y" {
 		fmt.Print("Port: ")
 		_, err = fmt.Scan(&r)
 		if err != nil {
-			_ = config.Set(file)
-			return err
+			return
 		}
 		config.Port = fmt.Sprintf(":%v", r)
 	}
 
-	err = config.Set(file)
-	if err != nil {
-		return err
-	}
-
-	fmt.Printf("\nYour configuration is.\n "+
-		"Deploy path: %v\n "+
-		"Final filename: %v\n "+
-		"Input file: %v\n "+
-		"Server port: %v\n",
-		config.BuildPath,
-		config.BuildName,
-		config.MainJS,
-		config.Port,
-	)
-	fmt.Printf("\n You can edit this configuration in file %v\n", CONFIG_FILE)
-
-	return nil
+	return
 }
 
-func newProject(name string) error {
+func newProject(name string) (projectPath string, config Config, err error) {
 	startDir, err := os.Getwd()
 	if err != nil {
-		return err
+		return
 	}
 
 	binDir, err := os.Executable()
 	if err != nil {
-		return err
+		return
 	}
 
 	err = os.Mkdir(name, 0755)
 	if err != nil {
 		if !os.IsExist(err) {
-			return err
+			return
 		}
-		return fmt.Errorf("the project %v exist, try with a different name", name)
+
+		return projectPath, config, fmt.Errorf("the project %v exist, try with a different name", name)
 	}
 
 	binPath := path.Dir(binDir)
-	projectPath := path.Join(startDir, name)
+	projectPath = path.Join(startDir, name)
 
 	err = c.Copy(path.Join(binPath, "lib"), path.Join(projectPath, "lib"))
 	if err != nil {
-		return err
+		return
 	}
 
-	fmt.Println("The project has been created successfully!")
-	fmt.Println("Do you want to start the setup wizard?(y/n)")
+	fmt.Print("The project has been created successfully!\n\n Do you want to start the setup wizard?(y/n)")
 	var r string
 	_, err = fmt.Scan(&r)
 	if err != nil {
-		return err
+		return
 	}
 
-	return setupWizard(r, projectPath)
+	config, err = setupWizard(r)
+
+	return
 }
 
 func runServer() error {
@@ -374,11 +478,40 @@ func main() {
 			fmt.Println("write a name after 'new'. Example: 'catrina new myProject'")
 			return
 		}
-		err := newProject(args[1])
+
+		projectPath, config, err := newProject(args[1])
 		if err != nil {
 			fmt.Println("Error!", err)
 			return
 		}
+
+		file, err := os.OpenFile(path.Join(projectPath, CONFIG_FILE), os.O_CREATE|os.O_RDWR|os.O_APPEND, 0755)
+		if err != nil {
+			return
+		}
+		defer file.Close()
+
+		err = config.Set(file)
+		if err != nil {
+			return
+		}
+
+		fmt.Printf("\nYour configuration is.\n "+
+			"Deploy path: %v\n "+
+			"Final javascript filename: %v\n "+
+			"Final css filename: %v\n "+
+			"Input javascript file: %v\n "+
+			"Input css file: %v\n "+
+			"Server port: %v\n",
+			config.BuildPath,
+			config.BuildJS,
+			config.BuildCSS,
+			config.MainJS,
+			config.MainCSS,
+			config.Port,
+		)
+		fmt.Printf("\nYou can edit this configuration in file %v\n", CONFIG_FILE)
+
 	} else if order == RUN_SERVER {
 		//TODO Crear un servidor en el puerto elegido en la configuración, solo sirve el index.html
 		config, err := readConfig()
@@ -405,5 +538,8 @@ func main() {
 		fmt.Printf("Not correct args, use '%v', '%v' or '%v' \n", START, RUN_SERVER, BUILD)
 		return
 	}
-
+	//TODO commands for:
+	// -- install js libraries
+	// -- update catrina standard lib
+	// -- update catrina entire
 }

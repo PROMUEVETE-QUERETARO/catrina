@@ -1,4 +1,4 @@
-@import url("../core/variables.css");
+@import "../core/core.css";
 
 .c__table__clear {
     display: inline-table;
