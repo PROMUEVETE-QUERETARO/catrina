@@ -9,6 +9,8 @@ import (
 	"github.com/jonhteper/go-addons/core"
 	c "github.com/otiai10/copy"
 	"io/ioutil"
+	"log"
+	"net/http"
 	"os"
 	"path"
 	"strings"
@@ -19,20 +21,23 @@ const (
 	START             = "new"
 	RUN_SERVER        = "run"
 	BUILD             = "build"
+	UPDATE            = "update"
+	UPDATE_CATRINA    = "upgrade"
 	CONFIG_FILE       = "catrina.config.json"
 	DEFAULT_PORT      = ":9095"
 	COMPILE_FILE_JS   = "catrina.js"
+	CATRINA_CORE_JS   = "./lib/core/core.js"
 	EXPORTS_FILE_PATH = "./lib/exports.js"
 	FONTS_RELATION    = "./lib/css-fonts-relation.json"
 )
 
 type Config struct {
-	Port      string `json:"serverPort"`   // port of proof server.
 	MainJS    string `json:"inputFileJS"`  // input file javascript location.
 	MainCSS   string `json:"inputFileCSS"` // input file css location.
 	BuildPath string `json:"deployPath"`   // path where final files will build and where start the proof server.
 	BuildJS   string `json:"finalFileJS"`  // final javascript filename.
 	BuildCSS  string `json:"finalFileCSS"` // final css filename.
+	Port      string `json:"serverPort"`   // port of proof server.
 }
 
 func (config *Config) Set(file *os.File) error {
@@ -51,11 +56,6 @@ type Import struct {
 	path  string
 }
 
-type ImportCSS struct {
-	path  string
-	lines []int
-}
-
 type RelationCSSFont struct {
 	Name string `json:"name"`
 	Path string `json:"path"`
@@ -67,7 +67,7 @@ func compileCatrinaJS(exports *os.File) ([]Import, error) {
 	var directory []Import
 
 	for scanner.Scan() {
-		if line := scanner.Text(); strings.Contains(line, "export") {
+		if line := scanner.Text(); strings.Contains(line, "export") && !strings.Contains(line, "core.js") {
 			s := strings.Split(line, " ")
 			imp := Import{
 				names: strings.Split(s[1][1:len(s[1])-1], ","),
@@ -100,12 +100,30 @@ func compileCatrinaJS(exports *os.File) ([]Import, error) {
 	return directory, nil
 }
 
+func getImportsJSInputFile(file *os.File) (list []string, lines []int) {
+	scanner := bufio.NewScanner(file)
+	n := 1
+	for scanner.Scan() {
+		if line := scanner.Text(); strings.Contains(line, "import") && strings.Contains(line, "lib") {
+			s := strings.Split(line, " ")
+			names := strings.Split(s[1][1:len(s[1])-1], ",")
+			for _, v := range names {
+				list = core.SafeAppend(list, v)
+			}
+			lines = append(lines, n)
+		}
+		n++
+	}
+
+	return
+}
+
 func getImportsJS(file *os.File, list []string) ([]string, []int) {
 	var lines []int
 	scanner := bufio.NewScanner(file)
 	n := 1
 	for scanner.Scan() {
-		if line := scanner.Text(); strings.Contains(line, "import") {
+		if line := scanner.Text(); strings.Contains(line, "import") && !strings.Contains(line, "core.js") {
 			s := strings.Split(line, " ")
 			names := strings.Split(s[1][1:len(s[1])-1], ",")
 			for _, v := range names {
@@ -149,6 +167,17 @@ func evaluateLine(s string, names []string) bool {
 	}
 
 	return false
+}
+
+func writeCatrinaCoreJS(build *os.File) error {
+	data, err := ioutil.ReadFile(CATRINA_CORE_JS)
+	if err != nil {
+		return err
+	}
+
+	_, err = build.Write(data)
+
+	return err
 }
 
 func writeImportsJS(ref, build *os.File, names []string) error {
@@ -254,7 +283,7 @@ func build(config Config) error {
 	}
 	defer inputFile.Close()
 
-	imports, lines := getImportsJS(inputFile, []string{})
+	imports, lines := getImportsJSInputFile(inputFile)
 	var files []string
 	for _, v := range imports {
 		for _, imp := range directory {
@@ -287,6 +316,12 @@ func build(config Config) error {
 	defer buildFile.Close()
 
 	catrinaJS, err := os.Open(path.Join("temp", COMPILE_FILE_JS))
+	if err != nil {
+		return err
+	}
+	defer catrinaJS.Close()
+
+	err = writeCatrinaCoreJS(buildFile)
 	if err != nil {
 		return err
 	}
@@ -455,13 +490,43 @@ func newProject(name string) (projectPath string, config Config, err error) {
 	return
 }
 
-func runServer() error {
-	return nil
+func runServer(config Config) {
+	log.Printf("Listen server in http://localhost%v...", config.Port)
+	log.Fatal(http.ListenAndServe(config.Port, http.FileServer(http.Dir(config.BuildPath))))
 }
 
 func readConfig() (config Config, err error) {
 	_, err = addons.ReadJSONFile(CONFIG_FILE, &config)
 	return
+}
+
+func updateCatrina() error {
+	fmt.Println("this function is developing now...")
+	return nil
+}
+
+func updateLib() error {
+	projectDir, err := os.Getwd()
+	if err != nil {
+		return err
+	}
+
+	binDir, err := os.Executable()
+	if err != nil {
+		return err
+	}
+
+	err = os.RemoveAll(path.Join(projectDir, "lib"))
+	if err != nil {
+		return err
+	}
+
+	err = os.Mkdir("lib", 0755)
+	if err != nil {
+		return err
+	}
+
+	return c.Copy(path.Join(path.Dir(binDir), "lib"), path.Join(projectDir, "lib"))
 }
 
 func main() {
@@ -512,14 +577,45 @@ func main() {
 		)
 		fmt.Printf("\nYou can edit this configuration in file %v\n", CONFIG_FILE)
 
+	} else if order == UPDATE {
+		if len(args) < 2 {
+			fmt.Printf("Write 'lib' to update standar library. This action, replace all content of " +
+				"directory ./lib .\nWrite 'catrina' to update tool files. \n")
+			return
+		}
+
+		if args[1] == "lib" {
+			err := updateLib()
+			if err != nil {
+				fmt.Println("Fatal Error!:", err)
+				return
+			}
+			fmt.Println("the standard catrina library has been updated")
+		} else if args[1] == "catrina" {
+			err := updateCatrina()
+			if err != nil {
+				fmt.Println("Fatal Error!:", err)
+				return
+			}
+		} else {
+			fmt.Printf("Write 'lib' to update standar library. This action, replace all content of " +
+				"directory ./lib .\nWrite 'catrina' to update tool files.\n")
+		}
+
+	} else if order == UPDATE_CATRINA {
+		err := updateCatrina()
+		if err != nil {
+			fmt.Println("Fatal Error!:", err)
+			return
+		}
 	} else if order == RUN_SERVER {
-		//TODO Crear un servidor en el puerto elegido en la configuración, solo sirve el index.html
 		config, err := readConfig()
 		if err != nil {
 			fmt.Println("Fatal Error!:", err)
 			return
 		}
-		fmt.Println(config)
+		runServer(config)
+
 	} else if order == BUILD {
 		config, err := readConfig()
 		if err != nil {
@@ -538,8 +634,9 @@ func main() {
 		fmt.Printf("Not correct args, use '%v', '%v' or '%v' \n", START, RUN_SERVER, BUILD)
 		return
 	}
+
 	//TODO commands for:
-	// -- install js libraries
-	// -- update catrina standard lib
-	// -- update catrina entire
+	// -- import from src directory (included in $ catrina build)
+	// -- install js libraries ($ catrina install <path>)
+	// -- update catrina entire ($ catrina upgrade / $ catrina update catrina)
 }
