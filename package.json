@@ -1,11 +1,13 @@
 {
   "name": "catrina",
-  "version": "1.0.0",
-  "description": "A library for building SPAs",
+  "version": "1.1.4",
+  "description": "A framework for building SPAs",
   "license": "MIT",
   "keywords": [
     "SPA",
-    "framework"
+    "javascript",
+    "framework",
+    "library"
   ],
   "author": "jonhteper <jonhteper@protonmail.com>",
   "repository": {

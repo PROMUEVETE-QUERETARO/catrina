@@ -1,6 +1,0 @@
-# Apps / Aplicaciones
-
-...
-
-
-
