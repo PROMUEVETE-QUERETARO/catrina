@@ -79,6 +79,12 @@ $ catrina upgrade
 
 **Note**: This function is developing now.
 
+## TODO
+* update catrina tool ( `catrina upgrade` or `catrina update catrina`)
+* import from src directory (included in  `catrina build`)
+* run extra scripts (included in `catrina build`)
+* install js libraries (`catrina install <path>`)
+
 ## Version
-1.1.0.7
+1.1.0.8
 
