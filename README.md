@@ -5,7 +5,7 @@ In this moment is only available for Linux systems, but you can compile for your
 
 ## Install (Linux only)
 
-Execute **install.sh** file in /
+Download the last version: https://github.com/PROMUEVETE-QUERETARO/catrina/releases. Extract files and execute **install.sh** file.
 
 ```shell
 # ./install.sh
@@ -49,11 +49,15 @@ The file's structure is the next (the values are examples):
 
 ## Build project
 
+Catrina 
+
 ```shell
 $ catrina build
 ```
 
 ## Start server
+
+Run a proof server in deploy path defined in configuration file.
 
 ```shell
 $ catrina run
@@ -61,30 +65,31 @@ $ catrina run
 
 ## Update standard library
 
+If you want actualized the standard library in a project run the next command. 
+
+
 ```sh
 $ catrina update lib
 ```
 
+**Note**: this action delete other libraries installed in the project.
+
 ## Update catrina
 
+Run the update tool with the next command:
+
 ```sh
-$ catrina update catrina
+$ catrina-update
 ```
-
-or
-
-```shell
-$ catrina upgrade
-```
-
-**Note**: This function is developing now.
 
 ## TODO
-* update catrina tool ( `catrina upgrade` or `catrina update catrina`)
 * import from src directory (included in  `catrina build`)
 * run extra scripts (included in `catrina build`)
-* install js libraries (`catrina install <path>`)
+* install extra js libraries (`catrina install <path>`)
+* compile for Windows
+* compile for WebAssembly
+* compile for OSX
 
 ## Version
-1.1.0.8
+1.1.0.9
 
