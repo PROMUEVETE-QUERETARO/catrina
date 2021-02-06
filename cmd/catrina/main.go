@@ -75,21 +75,13 @@ func main() {
 			}
 			fmt.Println("the standard catrina library has been updated")
 		} else if args[1] == "catrina" {
-			err := internal.UpdateCatrina()
-			if err != nil {
-				fmt.Println("Fatal Error!:", err)
-				return
-			}
+			fmt.Println("run catrina-update")
 		} else {
 			fmt.Printf("Write 'lib' to update standar library. This action, replace all content of " +
 				"directory ./lib .\nWrite 'catrina' to update tool files.\n")
 		}
 	case internal.UpdateTool:
-		err := internal.UpdateCatrina()
-		if err != nil {
-			fmt.Println("Fatal Error!:", err)
-			return
-		}
+		fmt.Println("run catrina-update")
 	case internal.RunServer:
 		config, err := internal.ReadConfig()
 		if err != nil {
@@ -111,11 +103,14 @@ func main() {
 			return
 		}
 		fmt.Println("Built!")
+	case internal.VersionTool:
+		fmt.Println(internal.Version)
 	default:
-		fmt.Printf("Not correct args, use '%v', '%v' or '%v' \n",
+		fmt.Printf("Not correct args, use '%v', '%v', %v or '%v' \n",
 			internal.Start,
 			internal.RunServer,
 			internal.Build,
+			internal.VersionTool,
 		)
 	}
 }
