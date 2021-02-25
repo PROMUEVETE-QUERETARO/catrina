@@ -1,4 +1,4 @@
-module catrina
+module github.com/PROMUEVETE-QUERETARO/catrina
 
 go 1.15
 
