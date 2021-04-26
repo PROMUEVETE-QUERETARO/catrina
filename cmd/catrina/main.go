@@ -1,9 +1,9 @@
 package main
 
 import (
-	"catrina/internal"
 	"flag"
 	"fmt"
+	"github.com/PROMUEVETE-QUERETARO/catrina/internal"
 	"os"
 	"path"
 )

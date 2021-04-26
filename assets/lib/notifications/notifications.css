@@ -17,13 +17,14 @@
 
 .c__notification--float {
 	display: grid;
-	position: absolute;
+	position: fixed;
 	width: 98%;
 	margin-left: 1%;
 	place-items: center;
 	box-shadow: var(--c-shadow-disperse-ligth);
 	border-radius: 0.5rem;
 	cursor: pointer;
+	bottom: 5%;
 }
 
 .c__notification__minimum {

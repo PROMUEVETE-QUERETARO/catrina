@@ -2,6 +2,7 @@ package internal
 
 import (
 	"bufio"
+	"fmt"
 	c "github.com/otiai10/copy"
 	"io/ioutil"
 	"os"
@@ -73,4 +74,30 @@ func writeImportsCSSAndCopyFonts(build *os.File, list []string, config Config) e
 	}
 
 	return err
+}
+
+func GetCSSRule(file *os.File, name string) (content []byte) {
+	scanner := bufio.NewScanner(file)
+	ev := false
+	var rules []string
+	for scanner.Scan() {
+		if line := scanner.Text(); strings.Contains(line, fmt.Sprintf("%v {", name)) ||
+			strings.Contains(line, fmt.Sprintf("%v,", name)) || strings.Contains(line, fmt.Sprintf("%v{", name)) || ev {
+			ev = true
+
+			rules = append(rules, line)
+
+			if strings.Contains(line, "}") {
+				break
+			}
+		}
+	}
+
+	if len(rules) == 0 {
+		return
+	}
+
+	rule := strings.Join(rules, "\n")
+	content = append(content, rule...)
+	return
 }
