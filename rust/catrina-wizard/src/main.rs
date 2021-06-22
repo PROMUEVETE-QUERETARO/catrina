@@ -1,5 +1,8 @@
 use std::io::{stdin, stdout, Write, BufWriter, BufReader, Read};
 use std::fs::File;
+use std::env;
+use std::path::PathBuf;
+
 extern crate serde;
 extern crate serde_json;
 
@@ -18,6 +21,61 @@ struct Config {
 
 }
 
+impl Config {
+    pub fn create_file(&self) {
+        let data = serde_json::to_string_pretty(&self).unwrap();
+        let file = File::create(file_from_location(CONFIG_FILE)).expect("Error creating config file");
+        BufWriter::new(file)
+            .write_all(data.as_bytes())
+            .expect("Error writing config file");
+    }
+}
+
+fn standard_config() -> Config {
+    Config{
+        inputFileJs: "./input.js".to_string(),
+        inputFileCSS: "./input.css".to_string(),
+        deployPath: "./deploy".to_string(),
+        finalFileJS: "main.js".to_string(),
+        finalFileCSS: "styles.css".to_string(),
+        serverPort: DEFAULT_PORT.to_string()
+    }
+}
+
+fn read_user_response() -> String {
+    let mut user_response = String::new();
+    let _  =stdout().flush();
+    stdin().read_line(&mut user_response).expect("Error reading user input");
+    user_response.trim().to_string()
+}
+
+fn print_config_file_result(config: &Config) {
+    let data = serde_json::to_string_pretty(config).unwrap();
+    let file = File::create(CONFIG_FILE).expect("Error creating config file");
+    BufWriter::new(file)
+        .write_all(data.as_bytes())
+        .expect("Error writing config file");
+    your_file_config_content();
+}
+
+fn your_file_config_content() {
+    let mut data = String::new();
+    let reference = File::open(file_from_location(CONFIG_FILE)).expect("Error reading config file");
+    let mut br = BufReader::new(reference);
+    br.read_to_string(&mut data).expect("Error parsing data");
+    println!("\nYour project file:\n{}", data);
+    println!("You can edit this configuration in file {}", CONFIG_FILE);
+}
+
+
+
+fn file_from_location(file: &str) -> PathBuf {
+    let mut p = env::current_dir().unwrap();
+    p.push(file);
+    p
+}
+
+
 fn setup_wizard() {
     const EXIT_MSJ: &str = "(type 'exit' to close)";
     const EXIT_ORDER: &str = "exit";
@@ -27,7 +85,8 @@ fn setup_wizard() {
     println!("Set deploy path:{}", EXIT_MSJ);
     config.deployPath = read_user_response();
     if config.deployPath == EXIT_ORDER {
-        print_config_file_result(&standard_config);
+        standard_config.create_file();
+        your_file_config_content();
         return;
     }
 
@@ -73,42 +132,6 @@ fn setup_wizard() {
     }
 
     print_config_file_result(&config);
-}
-
-fn read_user_response() -> String {
-    let mut user_response = String::new();
-    let _  =stdout().flush();
-    stdin().read_line(&mut user_response).expect("Error reading user input");
-    user_response.trim().to_string()
-}
-
-fn print_config_file_result(config: &Config) {
-    let data = serde_json::to_string_pretty(config).unwrap();
-    let file = File::create(CONFIG_FILE).expect("Error creating config file");
-    BufWriter::new(file)
-        .write_all(data.as_bytes())
-        .expect("Error writing config file");
-    your_file_config_content();
-}
-
-fn your_file_config_content() {
-    let mut data = String::new();
-    let reference = File::open(CONFIG_FILE).expect("Error reading config file");
-    let mut br = BufReader::new(reference);
-    br.read_to_string(&mut data).expect("Error parsing data");
-    println!("\nYour project file:\n{}", data);
-}
-
-
-fn standard_config() -> Config {
-    Config{
-        inputFileJs: "./input.js".to_string(),
-        inputFileCSS: "./input.css".to_string(),
-        deployPath: "./deploy".to_string(),
-        finalFileJS: "main.js".to_string(),
-        finalFileCSS: "styles.css".to_string(),
-        serverPort: DEFAULT_PORT.to_string()
-    }
 }
 
 fn main() {
