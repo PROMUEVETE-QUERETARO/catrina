@@ -33,7 +33,6 @@ impl Project {
 
             let mut file_location = PathBuf::from(&project);
             file_location.push(file);
-            println!("file location {:?}", &file_location);
             File::create(file_location);
             return;
         }
