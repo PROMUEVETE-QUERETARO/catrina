@@ -7,14 +7,16 @@ import (
 	"fmt"
 	"io"
 	"io/ioutil"
+	"log"
 	"net/http"
 	"os"
+	"path"
 	"path/filepath"
 	"strings"
 )
 
 const (
-	Version         = "v1.1.0-beta.2"
+	Version         = "v1.1.0-beta.4"
 	UrlUpdate       = "https://apps.promuevete.mx/catrina/version.php"
 	EndExport       = "//@stop"
 	Start           = "new"
@@ -30,6 +32,22 @@ const (
 	ExportsFilePath = "./lib/exports.js"
 	FontsRelation   = "./lib/css-fonts-relation.json"
 )
+
+func ExecutablePath() string {
+	binDir, err := os.Executable()
+	if err != nil {
+		log.Fatal(err)
+	}
+	return path.Dir(binDir)
+}
+
+func StartPath() string {
+	startDir, err := os.Getwd()
+	if err != nil {
+		log.Fatal(err)
+	}
+	return startDir
+}
 
 // Config is the catrina's project configuration
 type Config struct {
