@@ -2,7 +2,7 @@ use std::io::{stdin, stdout, Write, BufWriter, BufReader, Read};
 use std::fs::File;
 use std::{env, fs};
 use std::path::{Path, PathBuf};
-use crate::catrina::{CONFIG_FILE, DEFAULT_PORT};
+use crate::catrina::{CONFIG_FILE, DEFAULT_PORT, VERSION_APP};
 extern crate serde;
 extern crate serde_json;
 
@@ -55,7 +55,16 @@ impl Project {
     }
 }
 
-#[macro_use] extern crate serde_derive;
+pub fn auto_project(project_name: &String) {
+    let project = Project{
+        config: standard_config(),
+        name: project_name.to_string()
+    };
+
+    project.start();
+}
+
+//#[macro_use] extern crate serde_derive;
 #[derive(Serialize, Deserialize, Debug)]
 pub struct Config {
     pub inputFileJs: String,
@@ -64,6 +73,7 @@ pub struct Config {
     pub finalFileJS: String,
     pub finalFileCSS: String,
     pub serverPort: String,
+    pub versionLib: String,
 }
 
 impl Config {
@@ -90,6 +100,7 @@ pub fn standard_config() -> Config {
         deployPath: "./deploy".to_string(),
         finalFileJS: "main.js".to_string(),
         finalFileCSS: "styles.css".to_string(),
-        serverPort: DEFAULT_PORT.to_string()
+        serverPort: DEFAULT_PORT.to_string(),
+        versionLib: VERSION_APP.to_string()
     }
 }

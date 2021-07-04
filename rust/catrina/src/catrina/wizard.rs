@@ -1,7 +1,7 @@
 use crate::catrina::project::{Project, standard_config};
 use crate::catrina::utils::read_user_response;
 
-fn setup_wizard(project_name: &String) {
+pub fn run_wizard(project_name: &String) {
     const EXIT_MSJ: &str = "(type 'exit' to close)";
     const EXIT_ORDER: &str = "exit";
     let mut project = Project{
@@ -60,3 +60,4 @@ fn setup_wizard(project_name: &String) {
 
     project.start();
 }
+
