@@ -1,15 +1,15 @@
 use crate::catrina::lib::StdLib;
-use std::fs;
-use crate::catrina::utils::{getwd, read_user_response};
-use crate::catrina::wizard::{run_wizard};
 use crate::catrina::project::{auto_project, Project};
-use std::fs::File;
+use crate::catrina::utils::{getwd, read_user_response};
+use crate::catrina::wizard::run_wizard;
 use eyre::Result as R;
+use std::fs;
+use std::fs::File;
 
+mod lib;
 mod project;
 mod utils;
 mod wizard;
-mod lib;
 
 const DEFAULT_PORT: &str = ":9095";
 const CONFIG_FILE: &str = "catrina.config.json";
@@ -26,13 +26,13 @@ fn catrina_new(project_name: &str, flag: &str) {
     let mut location = getwd();
     location.push(project_name);
 
-    let std_lib  = StdLib::new(VERSION_APP, location);
+    let std_lib = StdLib::new(VERSION_APP, location);
     match std_lib.get() {
         Ok(_x) => println!("The project has been created successfully!"),
         Err(e) => panic!("{:?}", e),
     }
 
-    if flag == FLAG_SKIP  {
+    if flag == FLAG_SKIP {
         auto_project(&project_name.to_string());
         return;
     }
@@ -47,22 +47,24 @@ fn catrina_new(project_name: &str, flag: &str) {
     }
 }
 
-fn project_from_location()-> R<Project> {
+fn project_from_location() -> R<Project> {
     let actual_path = getwd();
-    let project_name = actual_path.file_name().expect("Error reading current directory ");
+    let project_name = actual_path
+        .file_name()
+        .expect("Error reading current directory ");
     let project_name = project_name.to_str().expect("Error parsing directory name");
 
     let mut file_path = getwd();
     file_path.push(&CONFIG_FILE);
 
     let file = File::open(file_path)?;
-    let project = Project::from( file, String::from(project_name))?;
+    let project = Project::from(file, String::from(project_name))?;
     Ok(project)
 }
 
 fn catrina_update(flag: &str) -> R<()> {
     if flag == FLAG_SKIP {
-        let project = project_from_location()? ;
+        let project = project_from_location()?;
         project.update_lib()?;
         return Ok(());
     }
@@ -70,15 +72,12 @@ fn catrina_update(flag: &str) -> R<()> {
     println!("IMPORTANT! This command delete all additional libraries installed");
     println!("Do you want continue?(y/n)");
     if read_user_response() == "y" {
-        let project = project_from_location()? ;
+        let project = project_from_location()?;
         project.update_lib()?;
     }
 
-
-
     Ok(())
 }
-
 
 pub fn catrina_tool(args: Vec<String>) -> R<()> {
     let mut command = "";
@@ -87,12 +86,12 @@ pub fn catrina_tool(args: Vec<String>) -> R<()> {
     let mut flag_value = "";
 
     match args.get(1) {
-       Some(x) => command = x,
-       _ => {
-           println!("Error with arguments");
-           // TODO print manual
-           return Ok(());
-       }
+        Some(x) => command = x,
+        _ => {
+            println!("Error with arguments");
+            // TODO print manual
+            return Ok(());
+        }
     }
 
     match args.get(2) {
@@ -109,12 +108,12 @@ pub fn catrina_tool(args: Vec<String>) -> R<()> {
         _ => {}
     }
 
-   match &command {
-       &START_COMMAND => catrina_new(arg, flag),
-       &UPDATE_COMMAND => catrina_update(flag)?,
-       _=> {
-           println!("{}", &command);
-       }
-   }
-   Ok(())
+    match &command {
+        &START_COMMAND => catrina_new(arg, flag),
+        &UPDATE_COMMAND => catrina_update(flag)?,
+        _ => {
+            println!("{}", &command);
+        }
+    }
+    Ok(())
 }

@@ -1,11 +1,13 @@
-use std::io::{stdout, Write, stdin};
-use std::path::{PathBuf};
 use std::env;
+use std::io::{stdin, stdout, Write};
+use std::path::PathBuf;
 
 pub fn read_user_response() -> String {
     let mut user_response = String::new();
-    let _  = stdout().flush();
-    stdin().read_line(&mut user_response).expect("Error reading user input");
+    let _ = stdout().flush();
+    stdin()
+        .read_line(&mut user_response)
+        .expect("Error reading user input");
     user_response.trim().to_string()
 }
 

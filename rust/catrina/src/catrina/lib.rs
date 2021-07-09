@@ -1,21 +1,21 @@
-use std::path::{PathBuf};
-use std::{fs};
-use crate::catrina::utils::{bin_dir};
-use crate::catrina::{VERSION_APP};
-use self::fs_extra::{dir};
+use self::fs_extra::dir;
+use crate::catrina::utils::bin_dir;
+use crate::catrina::VERSION_APP;
+use std::fs;
+use std::path::PathBuf;
 
-extern  crate fs_extra;
+extern crate fs_extra;
 
 pub struct StdLib {
     pub version: String,
-    current_path: PathBuf
+    current_path: PathBuf,
 }
 
 impl StdLib {
     pub fn new(version: &str, path: PathBuf) -> StdLib {
-        StdLib{
+        StdLib {
             version: version.to_string(),
-            current_path: path
+            current_path: path,
         }
     }
 
@@ -35,12 +35,10 @@ impl StdLib {
 
         &self.rename_after_copy()?;
 
-
         Ok(())
-        
     }
 
-    fn rename_after_copy(&self) -> std::io::Result<()>{
+    fn rename_after_copy(&self) -> std::io::Result<()> {
         let mut from_path = PathBuf::from(&self.current_path);
         from_path.push(VERSION_APP);
         let mut to_path = PathBuf::from(&self.current_path);
@@ -49,5 +47,4 @@ impl StdLib {
         fs::rename(from_path, to_path)?;
         Ok(())
     }
-
 }

@@ -1,4 +1,4 @@
-all: prepare tool
+all: prepare format tool
 
 prepare:
 	rm -r ./bin || true
@@ -8,6 +8,8 @@ prepare:
 	cp ./assets/linux-install.sh ./bin
 	cp LICENSE ./bin
 	cp README.md ./bin
+format:
+	cd ./rust/catrina && cargo fmt
 tool:
 	cd ./rust/catrina/src && cargo build --release
 	cp ./rust/catrina/target/release/catrina ./bin/

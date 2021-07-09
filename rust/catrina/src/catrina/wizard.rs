@@ -1,12 +1,12 @@
-use crate::catrina::project::{Project, standard_config};
+use crate::catrina::project::{standard_config, Project};
 use crate::catrina::utils::read_user_response;
 
 pub fn run_wizard(project_name: &String) {
     const EXIT_MSJ: &str = "(type 'exit' to close)";
     const EXIT_ORDER: &str = "exit";
-    let mut project = Project{
+    let mut project = Project {
         config: standard_config(),
-        name: project_name.to_string()
+        name: project_name.to_string(),
     };
 
     let standard_config = standard_config();
@@ -51,7 +51,6 @@ pub fn run_wizard(project_name: &String) {
         return;
     }
 
-
     println!("Set port of trial server:{}", EXIT_MSJ);
     project.config.serverPort = read_user_response();
     if project.config.serverPort == EXIT_ORDER {
@@ -60,4 +59,3 @@ pub fn run_wizard(project_name: &String) {
 
     project.start();
 }
-

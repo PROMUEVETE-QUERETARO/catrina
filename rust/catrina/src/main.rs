@@ -1,8 +1,9 @@
-use std::env;
 use crate::catrina::catrina_tool;
+use std::env;
 
 mod catrina;
-#[macro_use] extern crate serde_derive;
+#[macro_use]
+extern crate serde_derive;
 
 fn main() {
     let args: Vec<String> = env::args().collect();
@@ -13,9 +14,8 @@ fn main() {
     }
 
     let r = catrina_tool(args);
-    match  r {
+    match r {
         Err(e) => panic!("{:?}", e),
-        _ => println!("No errors")
+        _ => println!("No errors"),
     }
-
 }
