@@ -14,7 +14,7 @@ fn main() {
 
     let r = catrina_tool(args);
     match  r {
-        Err(e) => panic!(e),
+        Err(e) => panic!("{:?}", e),
         _ => println!("No errors")
     }
 

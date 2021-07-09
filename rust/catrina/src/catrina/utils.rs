@@ -1,5 +1,5 @@
 use std::io::{stdout, Write, stdin};
-use std::path::{PathBuf, Path};
+use std::path::{PathBuf};
 use std::env;
 
 pub fn read_user_response() -> String {

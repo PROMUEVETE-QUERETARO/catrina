@@ -1,8 +1,8 @@
-use std::path::{Path, PathBuf};
-use std::{fs, env};
-use crate::catrina::utils::{bin_dir, getwd};
-use crate::catrina::{CatrinaError, VERSION_APP};
-use self::fs_extra::{dir, TransitProcess};
+use std::path::{PathBuf};
+use std::{fs};
+use crate::catrina::utils::{bin_dir};
+use crate::catrina::{VERSION_APP};
+use self::fs_extra::{dir};
 
 extern  crate fs_extra;
 

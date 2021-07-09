@@ -1,8 +1,12 @@
-use std::io::{stdin, stdout, Write, BufWriter, BufReader, Read};
+use std::io::{Write, BufWriter, BufReader, Read};
 use std::fs::File;
-use std::{env, fs};
+use std::{fs};
 use std::path::{Path, PathBuf};
 use crate::catrina::{CONFIG_FILE, DEFAULT_PORT, VERSION_APP};
+use crate::catrina::utils::{getwd};
+use crate::catrina::lib::StdLib;
+use eyre::Result;
+
 extern crate serde;
 extern crate serde_json;
 
@@ -12,6 +16,12 @@ pub(crate) struct Project {
 }
 
 impl Project {
+
+    pub fn from(file: File, name: String) -> Result<Project> {
+        let config = Config::from_file(file)?;
+        Ok(Project{config, name})
+    }
+
     fn create_environment(&self) {
         fs::create_dir_all(&format!("{}/{}",&self.name, &self.config.deployPath));
         Project::create_input_file(&self.config.inputFileJs, &self.name);
@@ -53,6 +63,16 @@ impl Project {
         &self.create_environment();
         Project::your_file_config_content(&self.name);
     }
+
+    pub fn update_lib(&self) -> Result<()> {
+        let mut actual_path = getwd();
+        actual_path.push("lib");
+        fs::remove_dir_all(actual_path)?;
+
+        let std_lib = StdLib::new(&self.config.versionLib, getwd());
+        std_lib.get()?;
+        Ok(())
+    }
 }
 
 pub fn auto_project(project_name: &String) {
@@ -64,7 +84,7 @@ pub fn auto_project(project_name: &String) {
     project.start();
 }
 
-//#[macro_use] extern crate serde_derive;
+
 #[derive(Serialize, Deserialize, Debug)]
 pub struct Config {
     pub inputFileJs: String,
@@ -77,6 +97,14 @@ pub struct Config {
 }
 
 impl Config {
+
+    pub fn from_file(mut file_config: File) -> Result<Config> {
+        let mut buffer = String::new();
+        file_config.read_to_string(&mut buffer)?;
+
+        let config: Config = serde_json::from_str(&buffer)?;
+        Ok(config)
+    }
 
     pub fn create_file(&self, project: &String) {
         fs::create_dir_all(project);
