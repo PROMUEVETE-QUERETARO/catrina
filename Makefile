@@ -14,5 +14,5 @@ tool:
 	cd ./rust/catrina/src && cargo build --release
 	cp ./rust/catrina/target/release/catrina ./bin/
 dev:
-	cd ./rust/catrina/src && cargo run
+	cd ./rust/catrina/src && cargo build
 	cp ./rust/catrina/target/debug/catrina ./bin/

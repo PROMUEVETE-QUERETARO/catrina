@@ -13,28 +13,40 @@ mod wizard;
 
 const DEFAULT_PORT: &str = ":9095";
 const CONFIG_FILE: &str = "catrina.config.json";
-const VERSION_APP: &str = "v1.2.0";
+pub const VERSION_APP: &str = "v1.2.0";
 const START_COMMAND: &str = "new";
 const UPDATE_COMMAND: &str = "update";
 const RUN_SERVER_COMMAND: &str = "run";
 const BUILD_COMMAND: &str = "build";
 const GET_LIB_VERSION_COMMAND: &str = "get";
-const FLAG_SKIP: &str = "-s";
 
-fn catrina_new(project_name: &str, flag: &str) {
-    fs::create_dir(project_name).expect("Error creating project folder");
+fn catrina_new(project_name: &str, flag: bool) -> R<()> {
+    if project_name.len() == 0 {
+        println!("The project name is necessary. Try with 'catrina new myProject'");
+        return Ok(());
+    }
+
+    match fs::create_dir(project_name) {
+        Ok(_x) => {}
+        Err(_e) => {
+            println!(
+                "the project {} exist, try with a different name",
+                project_name
+            );
+            return Ok(());
+        }
+    }
+
     let mut location = getwd();
     location.push(project_name);
 
     let std_lib = StdLib::new(VERSION_APP, location);
-    match std_lib.get() {
-        Ok(_x) => println!("The project has been created successfully!"),
-        Err(e) => panic!("{:?}", e),
-    }
+    std_lib.get()?;
+    println!("The project has been created successfully!");
 
-    if flag == FLAG_SKIP {
+    if flag {
         auto_project(&project_name.to_string());
-        return;
+        return Ok(());
     }
 
     println!("Do you want to start the setup wizard?(y/n)");
@@ -45,6 +57,8 @@ fn catrina_new(project_name: &str, flag: &str) {
     } else {
         auto_project(&project_name.to_string())
     }
+
+    Ok(())
 }
 
 fn project_from_location() -> R<Project> {
@@ -62,8 +76,8 @@ fn project_from_location() -> R<Project> {
     Ok(project)
 }
 
-fn catrina_update(flag: &str) -> R<()> {
-    if flag == FLAG_SKIP {
+fn catrina_update(flag: bool) -> R<()> {
+    if flag {
         let project = project_from_location()?;
         project.update_lib()?;
         return Ok(());
@@ -79,40 +93,12 @@ fn catrina_update(flag: &str) -> R<()> {
     Ok(())
 }
 
-pub fn catrina_tool(args: Vec<String>) -> R<()> {
-    let mut command = "";
-    let mut arg = "";
-    let mut flag = "";
-    let mut flag_value = "";
-
-    match args.get(1) {
-        Some(x) => command = x,
+pub fn catrina_tool(args: (&str, &str, bool)) -> R<()> {
+    match &args.0 {
+        &START_COMMAND => catrina_new(args.1, args.2)?,
+        &UPDATE_COMMAND => catrina_update(args.2)?,
         _ => {
-            println!("Error with arguments");
-            // TODO print manual
-            return Ok(());
-        }
-    }
-
-    match args.get(2) {
-        Some(x) => arg = x,
-        _ => {
-            println!("Error with arguments");
-            // TODO print manual
-            return Ok(());
-        }
-    }
-
-    match args.get(3) {
-        Some(x) => flag = x,
-        _ => {}
-    }
-
-    match &command {
-        &START_COMMAND => catrina_new(arg, flag),
-        &UPDATE_COMMAND => catrina_update(flag)?,
-        _ => {
-            println!("{}", &command);
+            println!("{}", &args.0);
         }
     }
     Ok(())
