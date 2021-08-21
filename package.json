@@ -1,11 +1,13 @@
 {
   "name": "catrina",
   "version": "1.1.0",
-  "description": "JS library",
+  "description": "JS library for web gui",
   "license": "MIT",
   "keywords": [
     "javascript",
-    "library"
+    "javascript-library",
+    "javascript-tools",
+    "gui"
   ],
   "author": "jonhteper <jonhteper@protonmail.com>",
   "repository": {
