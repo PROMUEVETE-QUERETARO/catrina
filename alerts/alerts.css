@@ -28,7 +28,7 @@
 
 .pwf__alert__canvas{
     display: inline-block;
-    position: absolute;
+    position: fixed;
     top: 5%;
     font-family: var(--c-font);
     min-width: 45%;
