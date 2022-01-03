@@ -1,0 +1,50 @@
+/*************************************************/
+/*************CONFIG VARIABLES********************/
+/*************************************************/
+
+:root {
+    /*************FONT********************/
+    --default-font: Armata;
+    --base-color-font: var(--c-gray2);
+    --contrast-color-font: var(--c-gray1);
+    /*************COLORS********************/
+    --base-color: var(--c-gray6);
+    --constrast-color: var(--c-gray2);
+    --enphasis-color: var(--c-yellow1);
+    --warning-color: var(--c-orange2);
+    --error-color: var(--c-red2);
+    --good-color: var(--c-green1);
+    /*************SHADOWS********************/
+
+    /*************BORDERS********************/
+    --border-radius-std: 0.5rem;
+    --border-radius-large: 0.8rem;
+    --border-radius-thin: 5px;
+    /*************WEB ELEMENTS********************/
+    --el-a-text_decoration: none;
+    --el-a-hover-text_decoration: underline;
+    --el-a-color: var(--warning-color);
+    --el-a-hover-color: var(--base-color-font);
+    /*************SCROLL BARS********************/
+    --scrollbar-color-std-Firefox: rgba(0,0,0,.2) transparent;
+    --scrollbar-width-std-Firefox: thin;
+    --scrollbar-color-std-Chromium: rgba(0, 0, 0, 0.1);
+    --scrollbar-color-hover-Chromium: rgba(0, 0, 0, 0.2);
+    --scrollbar-width-std-Chromium: 5px;
+    --scrollbar-radius-std-Chromium: 10px;
+}
+
+/*************DARK MODE********************/
+@media(prefers-color-scheme: dark) {
+    :root {
+        /*************FONT********************/
+        --base-color-font: var(--c-gray5);
+        --contrast-color-font: var(--c-gray6);
+        /*************COLORS********************/
+        --base-color: black;
+        --constrast-color: #444343;
+    }
+}
+
+
+/**/

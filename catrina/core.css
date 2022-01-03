@@ -1,0 +1,43 @@
+* {
+    padding: 0;
+    margin: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    scrollbar-width: var(--scrollbar-width-std-Firefox);
+    scrollbar-color: var(--scrollbar-color-std-Firefox);
+}
+
+/*************SCROLL BARS********************/
+
+/* width */
+::-webkit-scrollbar {
+    width: var(--scrollbar-width-std-Chromium);
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: var(--c-invisible);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: var(--scrollbar-color-std-Chromium);
+    border-radius: var(--scrollbar-radius-std-Chromium);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: var(--scrollbar-color-hover-Chromium);
+}
+
+/*************LINKS********************/
+a, .a {
+    text-decoration: var(--el-a-text_decoration);
+    color: var(--el-a-color);
+}
+
+a:hover, .a:hover {
+    text-decoration: var(--el-a-hover-text_decoration);
+    color: var(--el-a-hover-color);
+}

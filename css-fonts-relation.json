@@ -1,18 +1,18 @@
 [
   {
     "name": "armata.css",
-    "path": "core/fonts-and-icons/Armata.woff2"
+    "path": "catrina/fonts/Armata.woff2"
   },
   {
     "name": "niramit.css",
-    "path": "core/fonts-and-icons/Niramit.ttf"
+    "path": "catrina/fonts/Niramit.ttf"
   },
   {
     "name": "font-awesome.css",
-    "path": "core/fonts-and-icons/font-awesome"
+    "path": "widgets/icons/font-awesome"
   },
   {
     "name": "icomoon.css",
-    "path": "core/fonts-and-icons/icomoon"
+    "path": "widgets/icons/icomoon"
   }
 ]

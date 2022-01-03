@@ -1,9 +1,10 @@
 {
   "name": "catrina",
-  "version": "1.2.2",
-  "description": "JS library for web gui",
+  "version": "2.0-alpha",
+  "description": "CSS and JS library for web gui",
   "license": "MIT",
   "keywords": [
+    "css",
     "javascript",
     "javascript-library",
     "javascript-tools",
