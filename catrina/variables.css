@@ -12,21 +12,25 @@
     --c-gray6: #f5f5f5;
     --c-green1: #27b446;
     --c-green2: #7eb427;
-    --c-orange2: #ff932e;
     --c-orange1: #ff8411;
+    --c-orange2: #ff932e;
+    --c-orange3: #ff9639;
     --c-red1: #910d0d;
     --c-red2: #b61717;
     --c-yellow1: #efc819;
     --c-yellow2: #ffd92e;
     --c-invisible : rgba(236, 236, 236, 0);
-    --c-black-1: rgba(222, 222, 222, 0.87);
-    --c-black-2: rgba(231, 231, 231, 0.62);
+    --c-black1: rgba(0, 0, 0, 0.87);
+    --c-black2: #000000b3;
+    --c-black3: rgba(0, 0, 0, 0.5);
+    --c-black4: rgba(0, 0, 0, 0.3);
 
 
     /*Shadows*/
+    --c-default-shadow-values: 2px 9px 8px -4px;
     --c-shadow-heavy: 0px 5px 5px 0px rgba(0,0,0,0.75);
     --c-shadow-regular: 0px 5px 5px 0px rgba(0, 0, 0, 0.171);
-    --c-shadow-disperse: 2px 9px 8px -4px rgb(153, 148, 148);
-    --c-shadow-disperse-ligth: 2px 9px 8px -4px rgba(0, 0, 0, 0.22);
+    --c-shadow-disperse: var(--c-default-shadow-values) rgb(153, 148, 148);
+    --c-shadow-disperse-ligth: var(--c-default-shadow-values) rgba(0, 0, 0, 0.22);
 
 }
