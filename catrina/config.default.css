@@ -6,25 +6,74 @@
     /*************FONT********************/
     --default-font: Armata;
     --base-color-font: var(--c-gray2);
-    --contrast-color-font: var(--c-gray1);
+    --neutral-color-font: var(--c-gray1);
+    --contrast-color-font: rgba(255, 255, 255, 0.9);
+    --font_size-std: 18px;
     /*************COLORS********************/
     --base-color: var(--c-gray6);
-    --constrast-color: var(--c-gray2);
-    --enphasis-color: var(--c-yellow1);
-    --warning-color: var(--c-orange2);
+    --contrast-color: var(--c-gray5);
+    --enphasis-color: var(--c-orange3);
+    --warning-color: var(--c-orange1);
     --error-color: var(--c-red2);
     --good-color: var(--c-green1);
     /*************SHADOWS********************/
-
+    --el-button-shadow:var(--c-shadow-disperse-ligth);
+    --el-button-hover-shadow: var(--c-shadow-disperse-ligth);
+    --el-button-focus-shadow: var(--c-shadow-disperse);
+    --el-button-active-shadow: none;
+    --el-primary_button-shadow: var(--c-default-shadow-values) rgba(255, 150, 57, 0.6);
+    --el-primary_button-hover-shadow: var(--c-default-shadow-values) rgba(255, 150, 57, 0.6);
+    --el-primary_button-focus-shadow: var(--c-default-shadow-values) rgba(255, 150, 57, 0.8);
+    --el-primary_button-active-shadow: var(--c-default-shadow-values) none;
+    --el-dangerous_button-shadow: var(--c-default-shadow-values) rgba(182, 23, 23, 0.6);
+    --el-dangerous_button-hover-shadow: var(--c-default-shadow-values) rgba(182, 23, 23, 0.6);
+    --el-dangerous_button-focus-shadow: var(--c-default-shadow-values) rgba(182, 23, 23, 0.6);
+    --el-dangerous_button-active-shadow: none;
     /*************BORDERS********************/
     --border-radius-std: 0.5rem;
     --border-radius-large: 0.8rem;
     --border-radius-thin: 5px;
+
+    /*************PADDINGS********************/
+    --padding-std: 1%;
+
     /*************WEB ELEMENTS********************/
     --el-a-text_decoration: none;
     --el-a-hover-text_decoration: underline;
-    --el-a-color: var(--warning-color);
+    --el-a-color: var(--enphasis-color);
     --el-a-hover-color: var(--base-color-font);
+    --el-a-focus-outline: none;
+    --el-a-focus-text_decoration: underline;
+
+    --el-button-std-border: none;
+    --el-button-std-color: var(--c-black3);
+    --el-button-std-cursor: pointer;
+    --el-button-min_height: 2em;
+    --el-button-white_space: nowrap;
+    --el-button-overflow: hidden;
+    --el-button-text_overflow: ellipsis;
+    --el-button-hover-background: rgba(211, 211, 211, 0.8);
+    --el-button-hover-text_decoration: none;
+    --el-button-focus-outline: none;
+    --el-button-focus-background: var(--contrast-color);
+    --el-button-focus-text_decoration: none;
+    --el-button-active-outline: none;
+    --el-button-active-background: #c4c4c4;
+    --el-button-active-text_decoration: none;
+
+    --el-primary_button-hover-background: rgba(255, 150, 57, 0.8);
+    --el-primary_button-focus-background: var(--enphasis-color);
+    --el-primary_button-active-background: #ff8a1e;
+    --el-primary_button-focus-outline: none;
+    --el-primary_button-active-outline: none;
+
+    --el-dangerous_button-hover-background: rgba(182, 23, 23, 0.8);
+    --el-dangerous_button-focus-background: var(--error-color);
+    --el-dangerous_button-active-background: #b00b0b;
+    --el-dangerous_button-focus-outline: none;
+    --el-dangerous_button-active-outline: none;
+
+    --el-button-disabled-background: var(--c-invisible);
     /*************SCROLL BARS********************/
     --scrollbar-color-std-Firefox: rgba(0,0,0,.2) transparent;
     --scrollbar-width-std-Firefox: thin;
@@ -39,10 +88,10 @@
     :root {
         /*************FONT********************/
         --base-color-font: var(--c-gray5);
-        --contrast-color-font: var(--c-gray6);
+        --neutral-color-font: var(--c-gray6);
         /*************COLORS********************/
         --base-color: black;
-        --constrast-color: #444343;
+        --contrast-color: #444343;
     }
 }
 

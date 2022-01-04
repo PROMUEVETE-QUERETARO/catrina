@@ -1,4 +1,4 @@
-@import "../core/core.css";
+/*@import "../core/core.css";
 @import "../buttons/buttons.css";
 
 :root {
@@ -8,7 +8,7 @@
 }
 
 .pwf__alert__background {
-    background-color: var(--c-black-2);
+    background-color: var(--c-black2);
     width:100%;
     position:fixed;
     top:0;
@@ -45,7 +45,7 @@
     background-color: whitesmoke;
     padding: 0.5%;
 }
-/*------------------- ALERT HEADER *-------------------*/
+/*------------------- ALERT HEADER *-------------------*//*
 .pwf__alert__header{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -109,7 +109,7 @@
 .pwf__alert__header__button:active{
     box-shadow: none;
 }
-/*------------------- ALERT BODY *-------------------*/
+/*------------------- ALERT BODY *-------------------*//*
 .pwf__alert__body{
     display: block;
     padding: 1.1%;
@@ -118,7 +118,7 @@
 }
 
 
-/*------------------ ALERT FOOTER *------------------*/
+/*------------------ ALERT FOOTER *------------------*//*
 .pwf__alert__footer{
     display: flex;
     border-radius: 0 0 7px 7px;
@@ -133,7 +133,7 @@
     margin: auto;
     margin-bottom: 10px;
 }
-/*---------------- Responsive ----------------*/
+/*---------------- Responsive ----------------*//*
 @media(max-width:700px){
     :root{
         --width-alert: 90%;
@@ -165,4 +165,4 @@
         font-size: 1.2em;
 
     }
-}
+}*/

@@ -1,4 +1,4 @@
-@import "../core/core.css";
+/*@import "../core/core.css";
 
 .c__table__clear {
     display: inline-table;
@@ -75,7 +75,7 @@
 }
 
 .c__table__clear__cell--colorGray {
-    color: var(--c-black-1);
+    color: var(--c-black1);
 }
 
 .c__table__clear__cell--colorGold {
@@ -102,4 +102,4 @@
     .c__table__clear{
         font-size: 12px;
     }
-}
+}*/

@@ -1,4 +1,4 @@
-import {Element,setCssVariable} from "../core/core.js";
+/*import {Element,setCssVariable} from "../core/core.js";
 import {Button} from "../buttons/button.js";
 
 // salert es una función que permite crear Alerts prefabricados
@@ -250,3 +250,4 @@ const defineIcon = (type) => {
 }
 //@stop
 
+*/

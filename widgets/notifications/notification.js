@@ -1,4 +1,4 @@
-import {Element} from "../core/core.js";
+/*import {Element} from "../core/core.js";
 
 export const notify = (attributes, content, parentNode) => {
     let notification = new Element('div', {className:'c__notification'}, {innerHTML:`${content}`})
@@ -35,3 +35,4 @@ const deleteNotify = (notification, duration) => {
     }
 }
 //@stop
+*/

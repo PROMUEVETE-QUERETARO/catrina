@@ -6,7 +6,7 @@
 * Si no se dispone de una animación, debe definirse el parámetro «defaultAnimation»
 * como 'true' y se insertará una animación simple con color 'c-yellow1'.
 * */
-import {Element} from "../core/core.js";
+/*import {Element} from "../core/core.js";
 
 export class Loader {
     constructor(animation, parent, defaultAnimation) {
@@ -58,3 +58,4 @@ const insertLoader = (parentNode) => {
     parentNode.appendChild(container)
 }
 //@stop
+*/
