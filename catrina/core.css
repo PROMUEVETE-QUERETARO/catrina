@@ -41,3 +41,8 @@ a:hover, .a:hover {
     text-decoration: var(--el-a-hover-text_decoration);
     color: var(--el-a-hover-color);
 }
+
+a:focus, .a:focus {
+    outline: var(--el-a-focus-outline);
+    text-decoration: var(--el-a-focus-text_decoration);
+}
