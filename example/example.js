@@ -1,1 +1,1 @@
-console.log("Catrina example")
+console.log("Catrina example");
