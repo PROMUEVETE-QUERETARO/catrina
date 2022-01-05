@@ -31,6 +31,12 @@
     background: var(--scrollbar-color-hover-Chromium);
 }
 
+::selection {
+    color: var(--contrast-color-font);
+    background-color: var(--enphasis-color);
+}
+
+
 /*************LINKS********************/
 a, .a {
     text-decoration: var(--el-a-text_decoration);
