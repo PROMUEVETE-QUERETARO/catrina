@@ -23,11 +23,11 @@
     --el-button-active-shadow: none;
     --el-primary_button-shadow: var(--c-default-shadow-values) rgba(255, 150, 57, 0.6);
     --el-primary_button-hover-shadow: var(--c-default-shadow-values) rgba(255, 150, 57, 0.6);
-    --el-primary_button-focus-shadow: var(--c-default-shadow-values) rgba(255, 150, 57, 0.8);
+    --el-primary_button-focus-shadow: var(--c-default-shadow-values) rgba(255, 150, 57, 0.9);
     --el-primary_button-active-shadow: var(--c-default-shadow-values) none;
     --el-dangerous_button-shadow: var(--c-default-shadow-values) rgba(182, 23, 23, 0.6);
     --el-dangerous_button-hover-shadow: var(--c-default-shadow-values) rgba(182, 23, 23, 0.6);
-    --el-dangerous_button-focus-shadow: var(--c-default-shadow-values) rgba(182, 23, 23, 0.6);
+    --el-dangerous_button-focus-shadow: var(--c-default-shadow-values) rgba(182, 23, 23, 0.9);
     --el-dangerous_button-active-shadow: none;
     /*************BORDERS********************/
     --border-radius-std: 0.5rem;
@@ -36,7 +36,7 @@
 
     /*************PADDINGS********************/
     --padding-std: 1%;
-
+    --padding-thin: 0.5%;
     /*************WEB ELEMENTS********************/
     --el-a-text_decoration: none;
     --el-a-hover-text_decoration: underline;
@@ -76,7 +76,7 @@
     --el-button-disabled-background: var(--c-invisible);
     /*************SCROLL BARS********************/
     --scrollbar-color-std-Firefox: rgba(0,0,0,.2) transparent;
-    --scrollbar-width-std-Firefox: thin;
+    --scrollbar-width-std-Firefox: auto;
     --scrollbar-color-std-Chromium: rgba(0, 0, 0, 0.1);
     --scrollbar-color-hover-Chromium: rgba(0, 0, 0, 0.2);
     --scrollbar-width-std-Chromium: 5px;
@@ -88,10 +88,30 @@
     :root {
         /*************FONT********************/
         --base-color-font: var(--c-gray5);
-        --neutral-color-font: var(--c-gray6);
+        --neutral-color-font: var(--c-gray4);
+        --contrast-color-font: var(--c-gray6);
         /*************COLORS********************/
-        --base-color: black;
-        --contrast-color: #444343;
+        --base-color: var(--c-black1);
+        --contrast-color: var(--c-gray3);
+        --enphasis-color: var(--c-orange3);
+        --warning-color: var(--c-orange1);
+        --error-color: var(--c-red2);
+        --good-color: var(--c-green1);
+        /*************SHADOWS********************/
+        --el-button-shadow: none;
+        --el-button-hover-shadow: none;
+        --el-button-focus-shadow: none;
+        --el-button-active-shadow: none;
+        --el-primary_button-shadow: none;
+        --el-primary_button-hover-shadow: none;
+        --el-primary_button-focus-shadow: none;
+        --el-primary_button-active-shadow: none;
+        --el-dangerous_button-shadow: none;
+        --el-dangerous_button-hover-shadow: none;
+        --el-dangerous_button-focus-shadow: none;
+        --el-dangerous_button-active-shadow: none;
+        /*************SCROLL BARS********************/
+        --scrollbar-color-std-Firefox: rgb(0, 0, 0) transparent;
     }
 }
 
