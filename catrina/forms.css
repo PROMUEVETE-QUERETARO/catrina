@@ -48,7 +48,7 @@
     border: 2px solid var(--c-invisible);
 }
 
-.c__input_color:focus {
+.c__input_color:focus, .c__input_color:active {
     border: 2px solid var(--emphasis-color);
     outline: none;
     transition: all 0.7s
@@ -95,4 +95,79 @@ input[type=range].c__input_range::-webkit-slider-thumb {
 .c__input_range::-moz-range-thumb:hover, .c__input_range:focus::-moz-range-thumb {
     background: var(--emphasis-color);
     transition: 0.7s;
+}
+
+/****************************************************************************/
+/* Based on  https://www.w3schools.com/howto/howto_css_custom_checkbox.asp */
+.c__input_checkbox, .c__input_radio {
+    display: inline-grid;
+    position: relative;
+    cursor: var(--el-std_input-cursor);
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    height: 25px;
+    width: 25px;
+    place-items: center;
+}
+.c__input_checkbox input, .c__input_radio input {
+    position: absolute;
+    opacity: 0;
+    cursor: var(--el-std_input-cursor);
+    height: 100%;
+    width: 100%;
+}
+
+.c__input_checkbox__checkmark, .c__input_radio__checkmark {
+    position: absolute;
+    height: 25px;
+    width: 25px;
+    border-radius: var(--border-radius-thin);
+    background-color: var(--contrast-color);
+    transition: 0.5s;
+}
+
+.c__input_radio__checkmark{
+    border-radius: 50%;
+    /*background-color: var(--contrast-color-font);*/
+}
+.c__input_checkbox input:checked ~ .c__input_checkbox__checkmark, .c__input_radio ~ .c__input_radio__checkmark {
+    background-color: var(--emphasis-color);
+    transition: 0.5s;
+}
+
+.c__input_checkbox__checkmark:after, .c__input_radio__checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.c__input_checkbox input:checked ~ .c__input_checkbox__checkmark:after, .c__input_radio input:checked ~ .c__input_radio__checkmark:after {
+    display: block;
+}
+
+.c__input_checkbox .c__input_checkbox__checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid var(--contrast-color-font);
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.c__input_radio input:checked ~ .c__input_radio__checkmark {
+    background-color: var(--emphasis-color);
+}
+.c__input_radio .c__input_radio__checkmark:after {
+    top: 8px;
+    left: 8px;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--contrast-color-font);
 }
