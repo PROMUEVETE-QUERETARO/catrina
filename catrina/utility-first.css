@@ -1,4 +1,5 @@
 ._bold_font { font-weight: bold; }
+._italic_font { font-style: italic}
 /**/
 ._left { text-align: left; }
 ._center_align { text-align: center; }
@@ -123,6 +124,8 @@
 ._padding_9p { padding: 9%; }
 ._padding_10p { padding: 10%; }
 /**/
+._padding_std { padding: var(--padding-std)}
+/*Font px*/
 ._font_1px { font-size: 1px }
 ._font_2px { font-size: 2px }
 ._font_3px { font-size: 3px }

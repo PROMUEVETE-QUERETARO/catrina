@@ -12,7 +12,7 @@
     /*************COLORS********************/
     --base-color: var(--c-gray6);
     --contrast-color: var(--c-gray5);
-    --enphasis-color: var(--c-orange3);
+    --emphasis-color: var(--c-orange3);
     --warning-color: var(--c-orange1);
     --error-color: var(--c-red2);
     --good-color: var(--c-green1);
@@ -40,7 +40,7 @@
     /*************WEB ELEMENTS********************/
     --el-a-text_decoration: none;
     --el-a-hover-text_decoration: underline;
-    --el-a-color: var(--enphasis-color);
+    --el-a-color: var(--emphasis-color);
     --el-a-hover-color: var(--base-color-font);
     --el-a-focus-outline: none;
     --el-a-focus-text_decoration: underline;
@@ -62,7 +62,7 @@
     --el-button-active-text_decoration: none;
 
     --el-primary_button-hover-background: rgba(255, 150, 57, 0.8);
-    --el-primary_button-focus-background: var(--enphasis-color);
+    --el-primary_button-focus-background: var(--emphasis-color);
     --el-primary_button-active-background: #ff8a1e;
     --el-primary_button-focus-outline: none;
     --el-primary_button-active-outline: none;
@@ -74,6 +74,12 @@
     --el-dangerous_button-active-outline: none;
 
     --el-button-disabled-background: var(--c-invisible);
+
+    --el-std_input-cursor: pointer;
+    --el-std_input-align: center;
+    --el-std_input-background: var(--c-invisible);
+
+    --el-range-thumb-border_radius: 50%;
     /*************SCROLL BARS********************/
     --scrollbar-color-std-Firefox: rgba(0,0,0,.2) transparent;
     --scrollbar-width-std-Firefox: auto;
@@ -93,7 +99,7 @@
         /*************COLORS********************/
         --base-color: var(--c-black1);
         --contrast-color: var(--c-gray3);
-        --enphasis-color: var(--c-orange3);
+        --emphasis-color: var(--c-orange3);
         --warning-color: var(--c-orange1);
         --error-color: var(--c-red2);
         --good-color: var(--c-green1);

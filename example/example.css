@@ -10,6 +10,7 @@
 @import "../catrina/buttons.css";
 @import "../catrina/utility-first.css";
 @import "../catrina/fonts/armata.css";
+@import "../catrina/forms.css";
 
 body {
     background-color: var(--base-color);

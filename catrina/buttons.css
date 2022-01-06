@@ -43,7 +43,7 @@
 /*********************/
 
 .c__button--primary {
-    background-color: var(--enphasis-color);
+    background-color: var(--emphasis-color);
     color: var(--contrast-color-font);
     box-shadow: var(--el-primary_button-shadow);
 }

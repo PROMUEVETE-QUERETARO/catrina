@@ -33,7 +33,7 @@
 
 ::selection {
     color: var(--contrast-color-font);
-    background-color: var(--enphasis-color);
+    background-color: var(--emphasis-color);
 }
 
 
