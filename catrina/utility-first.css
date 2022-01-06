@@ -36,7 +36,10 @@
 /**/
 ._rotate_180d { transform: rotateZ(180deg); transition: 0.5s; }
 ._rotate_X180d{transform: rotateX(180deg); transition: 0.5s; }
-/*grid*/
+/*Display*/
+._hidden {display: none}
+._block {display: block}
+._inline_block {display: inline-block}
 ._grid {display: grid}
 ._inline_grid {display: inline-grid}
 ._grid_box {display: grid; place-items: center}
@@ -384,13 +387,11 @@
 }
 ._inline_grid_box{
     display: inline-grid;
-    text-align: center;
     font-size: var(--font_size-std);
 }
 
 ._grid_box, ._data_div {
     display: grid;
-    text-align: center;
     place-items: center;
     font-size: var(--font_size-std);
 }
