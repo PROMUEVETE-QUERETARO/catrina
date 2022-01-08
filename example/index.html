@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <link rel="shortcut icon" href="https://apps.promuevete.mx/images/icon.ico" type="image/x-icon">
     <link rel="stylesheet" href="./example.css"/>
-    <script src="./example.js"></script>
+    <script type="module" src="./example.js"></script>
     <title>Catrina Example</title>
 
 </head>
@@ -118,15 +118,14 @@
                 <input id="checkbox" type="checkbox">
                 <span class="c__input_checkbox__checkmark"></span>
             </label>
-            <div class="_block _padding_05p">
-                <p>Code:</p>
+            <div id="codebox15"></div>
+            <div class="_block _padding_05p" id="pre-checkbox">
                 <pre class="_simple_box">
 <span><</span>label class="c__label" for="checkbox">Checkbox<span><</span>/label>
 <span><</span>label for="checkbox" class="c__input_checkbox">
     <span><</span>input id="checkbox" type="checkbox">
     <span><</span>span class="c__input_checkbox__checkmark"><span><</span>/span>
-<span><</span>/label>
-                </pre>
+<span><</span>/label></pre>
             </div>
         </div>
         <div>
@@ -141,8 +140,9 @@
                 <span class="c__input_radio__checkmark"></span>
             </label>
             <div class="_block _padding_05p">
-                <p>Code:</p>
-                <pre class="_simple_box">
+                <div id="codebox16"></div>
+                <div id="pre-radio">
+                <pre class="_simple_box" >
 <span><</span>label class="c__label" for="radio1">Radio<span><</span>/label>
 <span><</span>label for="radio1" class="c__input_radio">
     <span><</span>input id="radio1" name="radio" type="radio">
@@ -152,8 +152,8 @@
 <span><</span>label for="radio2" class="c__input_radio">
     <span><</span>input id="radio2" name="radio" type="radio">
     <span><</span>span class="c__input_radio__checkmark"><span><</span>/span>
-<span><</span>/label>
-                </pre>
+<span><</span>/label></pre>
+                </div>
             </div>
         </div>
         <div>
@@ -162,14 +162,13 @@
                 Search File...
                 <input id="file" type="file" class="_hidden">
             </label>
-            <div class="_block _padding_05p">
-                <p>Code:</p>
+            <div id="codebox17"></div>
+            <div class="_block _padding_05p" id="pre-file">
                 <pre class="_simple_box">
 <span><</span>label class="c__button _font_12px" for="file">
     Search File...
     <span><</span>input id="file" type="file" class="_hidden">
-<span><</span>/label>
-                </pre>
+<span><</span>/label></pre>
             </div>
         </div>
     </form>

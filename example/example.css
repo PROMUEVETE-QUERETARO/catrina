@@ -11,6 +11,7 @@
 @import "../catrina/utility-first.css";
 @import "../catrina/fonts/armata.css";
 @import "../catrina/forms.css";
+@import "../widgets/collapse-box/collapse-box.css";
 
 body {
     background-color: var(--base-color);
