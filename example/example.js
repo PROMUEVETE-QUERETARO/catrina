@@ -1,15 +1,21 @@
 import * as catrina from "../widgets/catrina.js";
 
-console.log("Running Catrina example...");
-
 const SHOW_LABEL = "Show code";
-let id = document.getElementById.bind(document);
-catrina.CollapseBox(id("codebox15"), ExtractCode('#checkbox-container'), SHOW_LABEL, 'show-checkbox');
-catrina.CollapseBox(id("codebox16"), ExtractCode("#radio-container"), SHOW_LABEL, 'show-radio');
-catrina.CollapseBox(id("codebox17"), ExtractCode('#file-container'), SHOW_LABEL, 'show-file');
 
-catrina.collapseBoxes_run();
+window.onload = () => {
+    console.log("Running Catrina example...");
+    let id = document.getElementById.bind(document);
 
+    catrina.CollapseBox(id("codebox1"), ExtractCode('#buttons-container'), SHOW_LABEL, 'show-buttons');
+    catrina.CollapseBox(id("codebox15"), ExtractCode('#checkbox-container'), SHOW_LABEL, 'show-checkbox');
+    catrina.CollapseBox(id("codebox16"), ExtractCode("#radio-container"), SHOW_LABEL, 'show-radio');
+    catrina.CollapseBox(id("codebox17"), ExtractCode('#file-container'), SHOW_LABEL, 'show-file');
+    catrina.CollapseBox(id("codebox18"), ExtractCode('#table-container'), SHOW_LABEL, 'show-table');
+
+    catrina.collapseBoxes_run();
+
+
+}
 
 function n_space(n){
     let str = '';

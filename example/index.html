@@ -17,11 +17,13 @@
 
     <h2 id="Native Items" class="_margin_1p">Native Items</h2>
     <h3 id="Buttons" class="_margin_1p">Buttons</h3>
-    <button class="c__button _font_16px _margin_1p" disabled>Button Disabled</button>
-    <button class="c__button _font_16px _width_150px _margin_1p">Button</button>
-    <button class="c__button c__button--primary _font_16px _margin_1p">Primary Button</button>
-    <button class="c__button c__button--dangerous _font_16px _margin_1p">Dangerous Button</button>
-
+    <div id="buttons-container">
+        <button class="c__button _font_16px _margin_1p" disabled>Button Disabled</button>
+        <button class="c__button _font_16px _width_150px _margin_1p">Button</button>
+        <button class="c__button c__button--primary _font_16px _margin_1p">Primary Button</button>
+        <button class="c__button c__button--dangerous _font_16px _margin_1p">Dangerous Button</button>
+    </div>
+    <div id="codebox1"></div>
     <h3 id="Inputs" class="_margin_1p">Inputs</h3>
     <form class="_padding_1p _font_19px">
         <h4>Like text inputs</h4>
@@ -33,10 +35,6 @@
             <label for="disabled-text" class="c__label">Disabled Input</label>
             <input id="disabled-text" class="c__input_std" type="text" disabled>
         </div>
-
-
-
-
         <div>
             <label>email</label>
             <input class="c__input_std" type="email">
@@ -121,6 +119,7 @@
                 </label>
             </div>
             <div id="codebox15"></div>
+        </div>
         <div>
             <div id="radio-container">
                 <label class="c__label" for="radio1">Radio</label>
@@ -134,9 +133,7 @@
                     <span class="c__input_radio__checkmark"></span>
                 </label>
             </div>
-            <div class="_block _padding_05p">
-                <div id="codebox16"></div>
-            </div>
+            <div id="codebox16"></div>
         </div>
         <div>
             <div id="file-container">
@@ -150,7 +147,41 @@
         </div>
     </form>
 
-
+    <h3 id="Tables" class="_margin_1p">Tables</h3>
+    <div id="table-container" class="_font_19px _padding_std">
+        <table class="c__table _nowrap" >
+            <caption class="_bold_font">Supported Browsers</caption>
+            <thead>
+                <tr class="_pre-line">
+                    <th>Browser</th>
+                    <th>Minimal support version</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th><i class="icon-chrome"></i> Chrome</th>
+                    <td>81</td>
+                </tr>
+                <tr>
+                    <th><i class="icon-chrome"></i> Chromium </th>
+                    <td>81</td>
+                </tr>
+                <tr>
+                    <th><i class="icon-firefox"></i> Firefox</th>
+                    <td>72</td>
+                </tr>
+                <tr>
+                    <th><i class="icon-safari"></i> Safari</th>
+                    <td>13</td>
+                </tr>
+                <tr>
+                    <th><i class="icon-IE"></i> IE</th>
+                    <td>Unsupported</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div id="codebox18" class="_font_12px _padding_std"></div>
     <h2 id="Widgets" class="_margin_1p">Widgets</h2>
 
     <h2 class="_margin_1p">Utility First Classes</h2>
