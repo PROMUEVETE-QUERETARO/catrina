@@ -1,9 +1,14 @@
 ._bold_font { font-weight: bold; }
 ._italic_font { font-style: italic}
-/**/
+/*Text align*/
 ._left { text-align: left; }
 ._center_align { text-align: center; }
 ._right { text-align: right; }
+/*White Space*/
+._nowrap { white-space: nowrap; }
+._pre-line { white-space: pre-line; }
+._pre-wrap { white-space: pre-wrap; }
+._normal_wrap { white-space: normal; }
 /**/
 ._color_aqua2{ color: var(--c-aqua2); }
 ._color_green1 { color: var(--c-green1); }
@@ -40,6 +45,8 @@
 ._hidden {display: none}
 ._block {display: block}
 ._inline_block {display: inline-block}
+._flex {display: flex}
+._inline_flex {display: inline-flex}
 ._grid {display: grid}
 ._inline_grid {display: inline-grid}
 ._grid_box {display: grid; place-items: center}
