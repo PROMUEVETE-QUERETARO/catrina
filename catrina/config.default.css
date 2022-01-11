@@ -29,6 +29,7 @@
     --el-dangerous_button-hover-shadow: var(--c-default-shadow-values) rgba(182, 23, 23, 0.6);
     --el-dangerous_button-focus-shadow: var(--c-default-shadow-values) rgba(182, 23, 23, 0.9);
     --el-dangerous_button-active-shadow: none;
+    --el-rows-std-shadow: none;
     /*************BORDERS********************/
     --border-radius-std: 0.5rem;
     --border-radius-large: 0.8rem;
@@ -80,6 +81,41 @@
     --el-std_input-background: var(--c-invisible);
 
     --el-range-thumb-border_radius: 50%;
+
+    --el-table-empty_cells: show;
+    --el-table-border_spacing: 0;
+    --el-table-border_collapse: collapse;
+    --el-rows-std-padding: 2.1px;
+    --el-rows-std-margin: 0 0 3px 0;
+    --el-rows-std-border_radius: 0;
+    --el-rows-std-vertica-align: middle;
+    --el-caption-background: var(--c-invisible);
+    --el-caption-color: var(--base-color-font);
+    --el-caption-align: center;
+    --el-thead-td-background: var(--c-invisible);
+    --el-thead-td-color: var(--base-color-font);
+    --el-thead-td-align: center;
+    --el-thead-td-border-top: none;
+    --el-thead-td-border-right: none;
+    --el-thead-td-border-bottom: 2px solid var(--c-black3);
+    --el-thead-td-border-left: none;
+    --el-thead-td-border-radius: none;
+    --el-tbody-td-background: var(--c-invisible);
+    --el-tbody-td-color: var(--base-color-font);
+    --el-tbody-td-align: center;
+    --el-tbody-td-border-top: none;
+    --el-tbody-td-border-right: none;
+    --el-tbody-td-border-bottom: 2px solid var(--contrast-color);
+    --el-tbody-td-border-left: none;
+    --el-tbody-td-border-radius: none;
+    --el-tbody-th-background: var(--c-invisible);
+    --el-tbody-th-color: var(--base-color-font);
+    --el-tbody-th-align: left;
+    --el-tbody-th-border-top: none;
+    --el-tbody-th-border-right: none;
+    --el-tbody-th-border-bottom: 2px solid var(--contrast-color);
+    --el-tbody-th-border-left: none;
+    --el-tbody-th-border-radius: none;
     /*************SCROLL BARS********************/
     --scrollbar-color-std-Firefox: rgba(0,0,0,.2) transparent;
     --scrollbar-width-std-Firefox: auto;
