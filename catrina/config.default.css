@@ -152,6 +152,13 @@
     --_aux-notify_float-margin: calc(100% - var(--notify_float-width));
     --notify_float-margin-left: calc( var(--_aux-notify_float-margin)/ 2);
     --notify_float-cursor: pointer;
+    /*FULL SCREEN LOADER*/
+    --loader-background: rgba(106, 106, 106, 0.2);
+    --loader-background-blur: 5px;
+    --loader-background-Firefox: rgba(44, 44, 44, 0.93);
+    --loader-size: 25vh;
+    --loader-color1: var(--c-orange3);
+    --loader-color2: var(--c-yellow2);
 }
 
 /*************DARK MODE********************/
@@ -185,6 +192,3 @@
         --scrollbar-color-std-Firefox: rgb(0, 0, 0) transparent;
     }
 }
-
-
-/**/
