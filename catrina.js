@@ -1,6 +1,0 @@
-export {Alert,salert} from "./alerts/alert.js"
-export {Button} from "./buttons/button.js"
-export {Element,Icon,setCssVariable,getRandomInt,getRandomArrayInt,priceFormatIVA,priceFormat,numberFormat,capitalizeString} from "./core/core.js"
-export {Form,Input,passwordInputs,customSelectInputs} from "./forms/form.js"
-export {Loader} from "./loaders/loader.js"
-export {notify} from "./notifications/notification.js"
