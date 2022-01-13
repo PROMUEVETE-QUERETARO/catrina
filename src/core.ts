@@ -19,3 +19,9 @@ function __button(id:string, text:string, classList: string): HTMLButtonElement 
     button.className = classList;
     return button;
 }
+
+export function asyncRemove(node: HTMLElement, milliseconds: number) {
+    setTimeout(()=>{
+        node.remove();
+    }, milliseconds);
+}

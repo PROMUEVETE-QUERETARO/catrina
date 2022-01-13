@@ -121,18 +121,21 @@
     --scrollbar-width-std-Firefox: auto;
     --scrollbar-color-std-Chromium: rgba(0, 0, 0, 0.1);
     --scrollbar-color-hover-Chromium: rgba(0, 0, 0, 0.2);
-    --scrollbar-width-std-Chromium: 5px;
+    --scrollbar-width-std-Chromium: 8px;
     --scrollbar-radius-std-Chromium: 10px;
 
     /*************WIDGETS********************/
     /*ALERTS*/
-    --alert-wrapper-background: rgba(231, 231, 231, 0.62);
-    --alert-wrapper-background-blur: 20px;
-    --alert-wrapper-background-Firefox: var(--c-black3);
+    --alert-wrapper-background: rgba(168, 168, 168, 0.62);
+    --alert-wrapper-background-blur: 5px;
+    --alert-wrapper-background-Firefox: rgba(224, 224, 224, 0.95);
+    --alert-wrapper-cursor: pointer;
     --alert-background: var(--base-color);
     --alert-color: var(--base-color-font);
     --alert-header-background: var(--base-color);
     --alert-header-color: var(--base-color-font);
+    --alert-close_button-background: #e7e7e7;
+    --alert-close_button-color: var(--base-color-font);
     --alert-scrollbar-color-Firefox: var(--scrollbar-color-std-Firefox);
     --alert-scrollbar-color-Chromium: var(--scrollbar-color-std-Chromium);
     --alert-tablet-width: 80%;
@@ -140,7 +143,15 @@
     --alert-movil-width: 80%;
     --alert-movil-heigth: 70%;
     /*NOTIFICATIONS*/
-
+    --notify-font_size: 16px;
+    --notify-margin: 1%;
+    --notify-align: center;
+    --notify_float-top: initial;
+    --notify_float-bottom: 5%;
+    --notify_float-width: 98%;
+    --_aux-notify_float-margin: calc(100% - var(--notify_float-width));
+    --notify_float-margin-left: calc( var(--_aux-notify_float-margin)/ 2);
+    --notify_float-cursor: pointer;
 }
 
 /*************DARK MODE********************/
