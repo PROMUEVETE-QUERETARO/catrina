@@ -123,6 +123,24 @@
     --scrollbar-color-hover-Chromium: rgba(0, 0, 0, 0.2);
     --scrollbar-width-std-Chromium: 5px;
     --scrollbar-radius-std-Chromium: 10px;
+
+    /*************WIDGETS********************/
+    /*ALERTS*/
+    --alert-wrapper-background: rgba(231, 231, 231, 0.62);
+    --alert-wrapper-background-blur: 20px;
+    --alert-wrapper-background-Firefox: var(--c-black3);
+    --alert-background: var(--base-color);
+    --alert-color: var(--base-color-font);
+    --alert-header-background: var(--base-color);
+    --alert-header-color: var(--base-color-font);
+    --alert-scrollbar-color-Firefox: var(--scrollbar-color-std-Firefox);
+    --alert-scrollbar-color-Chromium: var(--scrollbar-color-std-Chromium);
+    --alert-tablet-width: 80%;
+    --alert-tablet-heigth: 50%;
+    --alert-movil-width: 80%;
+    --alert-movil-heigth: 70%;
+    /*NOTIFICATIONS*/
+
 }
 
 /*************DARK MODE********************/
