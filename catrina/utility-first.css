@@ -10,6 +10,12 @@
 ._pre-wrap { white-space: pre-wrap; }
 ._normal_wrap { white-space: normal; }
 /**/
+._color_base {color: var(--base-color)}
+._color_contrast {color: var(--contrast-color)}
+._color_emphasis {color: var(--emphasis-color)}
+._color_warning {color: var(--warning-color)}
+._color_error {color: var(--error-color)}
+._color_good {color: var(--good-color)}
 ._color_aqua2{ color: var(--c-aqua2); }
 ._color_green1 { color: var(--c-green1); }
 ._color_gray2{ color: var(--c-gray2); }
@@ -320,6 +326,7 @@
 ._square_49px {height: 49px; width: 49px}
 ._square_50px {height: 50px; width: 50px}
 /*Circles*/
+._circle { border-radius: 50% }
 ._circle_5px {height: 5px; width: 5px; border-radius: 50% }
 ._circle_6px {height: 6px; width: 6px; border-radius: 50% }
 ._circle_7px {height: 7px; width: 7px; border-radius: 50% }
