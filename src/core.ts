@@ -20,7 +20,7 @@ function __button(id:string, text:string, classList: string): HTMLButtonElement 
     return button;
 }
 
-export function asyncRemove(node: HTMLElement, milliseconds: number) {
+export function asyncRemove(node: Element, milliseconds: number) {
     setTimeout(()=>{
         node.remove();
     }, milliseconds);
