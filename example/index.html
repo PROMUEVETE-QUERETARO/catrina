@@ -23,41 +23,53 @@
         <button class="c__button c__button--primary _font_16px _margin_1p">Primary Button</button>
         <button class="c__button c__button--dangerous _font_16px _margin_1p">Dangerous Button</button>
     </div>
-    <div id="codebox1"></div>
+    <div id="codebox1" class="_padding_std"></div>
     <h3 id="Inputs" class="_margin_1p">Inputs</h3>
     <form class="_padding_1p _font_19px">
         <h4>Like text inputs</h4>
-        <div class="">
+        <div class="c__input_box _width_30p">
             <label for="text" class="c__label_required">Text Input</label>
             <input id="text" class="c__input_std" type="text" placeholder="Write anything" required>
         </div>
-        <div class="">
+        <div class="c__input_box _width_30p">
             <label for="disabled-text" class="c__label">Disabled Input</label>
             <input id="disabled-text" class="c__input_std" type="text" disabled>
         </div>
-        <div>
+        <div class="c__input_box _width_30p">
             <label>email</label>
             <input class="c__input_std" type="email">
         </div>
-
-        <div>
+        <div class="c__input_box _width_30p">
+            <label>select</label>
+            <select class="c__input_std">
+                <optgroup label="A">
+                    <option value=""></option>
+                </optgroup>
+                <optgroup label="B">
+                    <option value="option 1">Option 1</option>
+                    <option value="option 2">Option 2</option>
+                    <option value="option 3">Option 3</option>
+                </optgroup>
+            </select>
+        </div>
+        <div class="c__input_box-inline _width_30p">
             <label>number</label>
             <input class="c__input_std" type="number">
         </div>
-        <div>
+        <div class="c__input_box-inline _width_30p">
             <label>password</label>
             <input class="c__input_std" type="password">
         </div>
-        <div>
+        <div class="c__input_box-inline _width_30p">
             <label>search</label>
             <input class="c__input_std" type="search">
         </div>
-        <div>
+        <div class="c__input_box _width_30p">
             <label>tel</label>
             <input class="c__input_std" type="tel">
         </div>
 
-        <div>
+        <div class="c__input_box _width_30p">
             <label>url</label>
             <input class="c__input_std" type="url">
         </div>
@@ -71,15 +83,15 @@
 
         <h4>Time inputs</h4>
 
-        <div>
+        <div class="c__input_box _width_30p">
             <label>time</label>
             <input class="c__input_std" type="time">
         </div>
-        <div>
+        <div class="c__input_box _width_30p">
             <label>date</label>
             <input class="c__input_std" type="date">
         </div>
-        <div>
+        <div class="c__input_box _width_30p">
             <label>datetime-local</label>
             <input class="c__input_std" type="datetime-local">
         </div>
@@ -87,20 +99,20 @@
 
         <h4>Non standard inputs</h4>
         <p class="_font_15px _italic_font"><span class="_bold_font">Warning: </span>This inputs only available in Chromium based browsers</p>
-        <div>
+        <div class="c__input_box _width_30p">
             <label>week</label>
             <input class="c__input_std" type="week">
         </div>
-        <div>
+        <div class="c__input_box _width_30p">
             <label>month</label>
             <input class="c__input_std" type="month">
         </div>
         <h4>Other inputs</h4>
-        <div>
+        <div class="c__input_box _width_30p">
             <label>color</label>
             <input class="c__input_color _square_30px" type="color">
         </div>
-        <div>
+        <div class="c__input_box _width_30p">
             <label>range</label>
             <input class="c__input_range" type="range">
         </div>
@@ -111,7 +123,7 @@
             For this reason, Catrina includes non-native versions for those entries.</p>
 
         <div>
-            <div id="checkbox-container">
+            <div id="checkbox-container" class="c__input_box-inline _width_30p">
                 <label class="c__label" for="checkbox">Checkbox</label>
                 <label for="checkbox" class="c__input_checkbox">
                     <input id="checkbox" type="checkbox">
@@ -136,9 +148,9 @@
             <div id="codebox16"></div>
         </div>
         <div>
-            <div id="file-container">
+            <div id="file-container" class="c__input_box _width_30p">
                 <label for="file" class="c__label">file</label>
-                <label class="c__button _font_12px" for="file">
+                <label class="c__button _font_12px _height_35px _width_50p _place_items_center" for="file">
                     Search File...
                     <input id="file" type="file" class="_hidden">
                 </label>
