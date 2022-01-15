@@ -79,6 +79,7 @@
     --el-std_input-cursor: pointer;
     --el-std_input-align: center;
     --el-std_input-background: var(--c-invisible);
+    --el-std_input-min-height: 35px;
 
     --el-range-thumb-border_radius: 50%;
 
