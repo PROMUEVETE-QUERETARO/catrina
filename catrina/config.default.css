@@ -155,10 +155,17 @@
     /*FULL SCREEN LOADER*/
     --loader-background: rgba(106, 106, 106, 0.2);
     --loader-background-blur: 5px;
-    --loader-background-Firefox: rgba(44, 44, 44, 0.93);
+    --loader-background-Firefox: rgba(210, 210, 210, 0.93);
     --loader-size: 25vh;
     --loader-color1: var(--c-orange3);
     --loader-color2: var(--c-yellow2);
+    /*MODAL WINDOW*/
+    --modal_header-background: var(--base-color);
+    --modal_header-color: var(--base-color-font);
+    --modal_body-background: var(--base-color);
+    --modal_body-color: var(--base-color-font);
+    --modal-scrollbar-color-Firefox: var(--scrollbar-color-std-Firefox);
+    --modal-scrollbar-color-Chromium: var(--scrollbar-color-std-Chromium);
 }
 
 /*************DARK MODE********************/

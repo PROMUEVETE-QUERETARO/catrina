@@ -14,6 +14,38 @@ window.onload = () => {
 
     catrina.collapseBoxes_run();
 
+    let button = catrina.PrimaryButton('', 'Accept'),
+        button2 = catrina.DangerousButton('', 'Refuse');
+
+    id('run-alert').onclick = ()=> catrina.Alert({title: 'Alert Widget', content: HtmlFromTemplate('#alert1-content'), buttons: []});
+    id('run-alert-no-skip').onclick = ()=>{
+        let alert = catrina.Alert({title: 'Non-skipped Alert', content: HtmlFromTemplate('#alert2-content'), buttons: [button, button2], skip: false})
+        button.onclick = ()=> {
+            catrina.FloatNotify(catrina.notifyType.Good, 'Accept button clicked', 3000);
+            alert.content.remove()
+            alert.shadow.remove()
+        }
+        button2.onclick = ()=> {
+            catrina.FloatNotify(catrina.notifyType.Error, 'Refuse button clicked', 3000);
+            alert.content.remove()
+            alert.shadow.remove()
+        }
+    }
+
+    id('loader-btn').onclick = () => {
+        let loader = catrina.LoaderStart();
+        catrina.LoaderStop(10_000, loader);
+    }
+
+    id('modal-btn').onclick = () => {
+        let modal = catrina.Modal('Modal Window', 'c__button _no_shadows');
+        modal.body.appendChild(id('modal-content').content.cloneNode(true));
+        modal.btn.addEventListener('click', ()=>{
+            catrina.CloseModal(modal.modal);
+            catrina.FloatNotify(catrina.notifyType.Good, 'Modal Closed', 3000)
+
+        });
+    }
 
 }
 
@@ -26,11 +58,11 @@ function n_space(n){
 }
 
 // inspired in https://stackoverflow.com/questions/14129953/how-to-encode-a-string-in-javascript-for-displaying-in-html
-function ExtractCode(keyof) {
+function ExtractCode(selector) {
     let div = document.createElement("div");
     let pre = document.createElement("pre");
     div.appendChild(pre)
-    let node = document.querySelector(keyof);
+    let node = document.querySelector(selector);
     let content = "";
     if (node != null){
         content = node.innerHTML
@@ -62,4 +94,14 @@ function ExtractCode(keyof) {
     }
     pre.innerHTML = content;
     return div.innerHTML
+}
+
+function HtmlFromTemplate(selector) {
+    let div = document.createElement('div');
+    let content = document.querySelector(selector).content.cloneNode(true);
+    if (content != null) {
+        div.appendChild(content);
+    }
+
+    return div.innerHTML;
 }

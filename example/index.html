@@ -183,10 +183,83 @@
     </div>
     <div id="codebox18" class="_font_12px _padding_std"></div>
     <h2 id="Widgets" class="_margin_1p">Widgets</h2>
+    <div class="_padding_std">
+        <button id="run-alert" class="c__button">Simple Alert</button>
+        <template id="alert1-content">
+            <p class="_padding_std _block">A most simple version for Alert. Use this configuration if you don't need user interaction,
+                for example, notices of low importance. This Alert will closing if the user will click in the cross button or in the Alert's shadow.</p>
+            <p class="_padding_std _block">You can custom colors with a <span class="_color_emphasis _bold_font">config.css</span> file.</p>
+            <h2 class="_padding_std">Javascript Example Code:</h2>
+            <div class="_padding_std">
+                <code>import * as catrina from "catrina/catrina.js";</code><br>
+                <code>catrina.Alert({title: 'Alert Widget', content: `${alert-content}`, buttons: []})</code>
+            </div>
 
-    <h2 class="_margin_1p">Utility First Classes</h2>
-    <div class="_circle_20px _colorbox_green1 _margin_15px"></div>
-    <div class="_square_20px _colorbox_green1 _margin_15px"></div>
+        </template>
+    </div>
+    <div class="_padding_std">
+        <button id="run-alert-no-skip" class="c__button">Two buttons Alert</button>
+        <template id="alert2-content">
+            <div class="_padding_std">
+                <p>Use this Alert type if you want force the user's answer.</p>
+                <p>In this Alert, a notification will be launched according to the button that the user clicks.</p>
+            </div>
+            <h2 class="_padding_std">Javascript Example Code:</h2>
+            <pre class="_padding_std _overflowX _margin_10px _font_17px">
+import * as catrina from "catrina/catrina.js";
+
+let button = catrina.PrimaryButton('', 'Accept'),
+    button2 = catrina.DangerousButton('', 'Refuse');
+
+let alert = catrina.Alert({title: 'Non-skipped Alert', content: `${alert-content}`, buttons: [button, button2], skip: false});
+
+button.onclick = ()=> {
+    catrina.FloatNotify(catrina.notifyType.Good, 'Accept button clicked', 3000);
+    alert.content.remove();
+    alert.shadow.remove();
+}
+button2.onclick = ()=> {
+    catrina.FloatNotify(catrina.notifyType.Error, 'Refuse button clicked', 3000);
+    alert.content.remove();
+    alert.shadow.remove();
+}
+            </pre>
+        </template>
+    </div>
+    <div class="_padding_std">
+        <button id="loader-btn" class="c__button">Full Screen Loader (10 sec)</button>
+    </div>
+    <div class="_padding_std">
+        <button id="modal-btn" class="c__button">Modal Window</button>
+        <template id="modal-content">
+            <div class="_padding_std">
+                <p>The modal window is the most personalizable widget. You can capture the button event and
+                    can access the modal's body directly.
+                </p>
+                <p>This widget is recommended if you want capture all attention in a new content.
+                    It's uselly for Single Page Applications.
+                </p>
+                <h2 class="_padding_std">Javascript Example Code:</h2>
+                <pre class="_padding_std _overflowX _margin_10px _font_17px">
+import * as catrina from "catrina/catrina.js";
+
+// Set window's title and button CSS class for arguments
+let modal = catrina.Modal('Modal Window', 'c__button _no_shadows');
+
+// You can access the modal's body directly
+modal.body.appendChild(document.querySelector('#modal-content').content.cloneNode(true));
+
+// Set button events.
+modal.btn.addEventListener('click', ()=>{
+    // If you want delete the modal, use this function
+    catrina.CloseModal(modal.modal);
+    catrina.FloatNotify(catrina.notifyType.Good, 'Modal Closed', 3000)
+});
+            </pre>
+            </div>
+        </template>
+    </div>
+
 </body>
 
 </html>

@@ -48,8 +48,10 @@
 ._colorbox_whitesmoke {background-color: whitesmoke}
 ._colorbox_invisible {background-color: var(--c-invisible)}
 /**/
-._noBackground { background-color: var(--c-invisible); }
-._noShadow { box-shadow: none; text-shadow: none; }
+._no_background { background-color: var(--c-invisible); }
+._no_shadow { box-shadow: none; text-shadow: none; }
+._no_shadows, ._no_shadows:hover, ._no_shadows:focus, ._no_shadows:active, ._no_shadows:disabled { box-shadow: none; text-shadow: none; }
+
 /**/
 ._rotate_180d { transform: rotateZ(180deg); transition: 0.5s; }
 ._rotate_X180d{transform: rotateX(180deg); transition: 0.5s; }
