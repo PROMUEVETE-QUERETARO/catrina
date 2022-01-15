@@ -16,6 +16,7 @@
     color: var(--base-color-font);
     font-size: 0.8em;
     transition: all 0.6s, border-color 0.7s;
+    min-height: var(--el-std_input-min-height);
     -webkit-appearance: textfield;
 }
 
@@ -170,4 +171,15 @@ input[type=range].c__input_range::-webkit-slider-thumb {
     height: 9px;
     border-radius: 50%;
     background: var(--contrast-color-font);
+}
+
+.c__input_box {
+    padding: var(--padding-std);
+    display: grid;
+}
+
+.c__input_box-inline {
+    padding: var(--padding-std);
+    display: grid;
+    grid-template-columns: 30% 70%;
 }
