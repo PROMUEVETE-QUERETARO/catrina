@@ -1,0 +1,18 @@
+[
+  {
+    "name": "armata.css",
+    "path": "fonts/Armata.woff2"
+  },
+  {
+    "name": "niramit.css",
+    "path": "fonts/Niramit.ttf"
+  },
+  {
+    "name": "font-awesome.css",
+    "path": "widgets/icons/font-awesome"
+  },
+  {
+    "name": "icomoon.css",
+    "path": "widgets/icons/icomoon"
+  }
+]

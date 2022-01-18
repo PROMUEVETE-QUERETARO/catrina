@@ -1,0 +1,202 @@
+/*************************************************/
+/*************CONFIG VARIABLES********************/
+/*************************************************/
+
+:root {
+    /*************FONT********************/
+    --default-font: Armata;
+    --base-color-font: var(--c-gray2);
+    --neutral-color-font: var(--c-gray1);
+    --contrast-color-font: rgba(255, 255, 255, 0.9);
+    --font_size-std: 18px;
+    /*************COLORS********************/
+    --base-color: var(--c-gray6);
+    --contrast-color: var(--c-gray5);
+    --emphasis-color: var(--c-orange3);
+    --warning-color: var(--c-orange1);
+    --error-color: var(--c-red2);
+    --good-color: var(--c-green1);
+    /*************SHADOWS********************/
+    --el-button-shadow:var(--c-shadow-disperse-ligth);
+    --el-button-hover-shadow: var(--c-shadow-disperse-ligth);
+    --el-button-focus-shadow: var(--c-shadow-disperse);
+    --el-button-active-shadow: none;
+    --el-primary_button-shadow: var(--c-default-shadow-values) rgba(255, 150, 57, 0.6);
+    --el-primary_button-hover-shadow: var(--c-default-shadow-values) rgba(255, 150, 57, 0.6);
+    --el-primary_button-focus-shadow: var(--c-default-shadow-values) rgba(255, 150, 57, 0.9);
+    --el-primary_button-active-shadow: var(--c-default-shadow-values) none;
+    --el-dangerous_button-shadow: var(--c-default-shadow-values) rgba(182, 23, 23, 0.6);
+    --el-dangerous_button-hover-shadow: var(--c-default-shadow-values) rgba(182, 23, 23, 0.6);
+    --el-dangerous_button-focus-shadow: var(--c-default-shadow-values) rgba(182, 23, 23, 0.9);
+    --el-dangerous_button-active-shadow: none;
+    --el-rows-std-shadow: none;
+    /*************BORDERS********************/
+    --border-radius-std: 0.5rem;
+    --border-radius-large: 0.8rem;
+    --border-radius-thin: 5px;
+
+    /*************PADDINGS********************/
+    --padding-std: 1%;
+    --padding-thin: 0.5%;
+    /*************WEB ELEMENTS********************/
+    --el-a-text_decoration: none;
+    --el-a-hover-text_decoration: underline;
+    --el-a-color: var(--emphasis-color);
+    --el-a-hover-color: var(--base-color-font);
+    --el-a-focus-outline: none;
+    --el-a-focus-text_decoration: underline;
+
+    --el-button-std-border: none;
+    --el-button-std-color: var(--c-black3);
+    --el-button-std-cursor: pointer;
+    --el-button-min_height: 2em;
+    --el-button-white_space: nowrap;
+    --el-button-overflow: hidden;
+    --el-button-text_overflow: ellipsis;
+    --el-button-hover-background: rgba(211, 211, 211, 0.8);
+    --el-button-hover-text_decoration: none;
+    --el-button-focus-outline: none;
+    --el-button-focus-background: var(--contrast-color);
+    --el-button-focus-text_decoration: none;
+    --el-button-active-outline: none;
+    --el-button-active-background: #c4c4c4;
+    --el-button-active-text_decoration: none;
+
+    --el-primary_button-hover-background: rgba(255, 150, 57, 0.8);
+    --el-primary_button-focus-background: var(--emphasis-color);
+    --el-primary_button-active-background: #ff8a1e;
+    --el-primary_button-focus-outline: none;
+    --el-primary_button-active-outline: none;
+
+    --el-dangerous_button-hover-background: rgba(182, 23, 23, 0.8);
+    --el-dangerous_button-focus-background: var(--error-color);
+    --el-dangerous_button-active-background: #b00b0b;
+    --el-dangerous_button-focus-outline: none;
+    --el-dangerous_button-active-outline: none;
+
+    --el-button-disabled-background: var(--c-invisible);
+
+    --el-std_input-cursor: pointer;
+    --el-std_input-align: center;
+    --el-std_input-background: var(--c-invisible);
+    --el-std_input-min-height: 35px;
+
+    --el-range-thumb-border_radius: 50%;
+
+    --el-table-empty_cells: show;
+    --el-table-border_spacing: 0;
+    --el-table-border_collapse: collapse;
+    --el-rows-std-padding: 2.1px;
+    --el-rows-std-margin: 0 0 3px 0;
+    --el-rows-std-border_radius: 0;
+    --el-rows-std-vertica-align: middle;
+    --el-caption-background: var(--c-invisible);
+    --el-caption-color: var(--base-color-font);
+    --el-caption-align: center;
+    --el-thead-td-background: var(--c-invisible);
+    --el-thead-td-color: var(--base-color-font);
+    --el-thead-td-align: center;
+    --el-thead-td-border-top: none;
+    --el-thead-td-border-right: none;
+    --el-thead-td-border-bottom: 2px solid var(--c-black3);
+    --el-thead-td-border-left: none;
+    --el-thead-td-border-radius: none;
+    --el-tbody-td-background: var(--c-invisible);
+    --el-tbody-td-color: var(--base-color-font);
+    --el-tbody-td-align: center;
+    --el-tbody-td-border-top: none;
+    --el-tbody-td-border-right: none;
+    --el-tbody-td-border-bottom: 2px solid var(--contrast-color);
+    --el-tbody-td-border-left: none;
+    --el-tbody-td-border-radius: none;
+    --el-tbody-th-background: var(--c-invisible);
+    --el-tbody-th-color: var(--base-color-font);
+    --el-tbody-th-align: left;
+    --el-tbody-th-border-top: none;
+    --el-tbody-th-border-right: none;
+    --el-tbody-th-border-bottom: 2px solid var(--contrast-color);
+    --el-tbody-th-border-left: none;
+    --el-tbody-th-border-radius: none;
+    /*************SCROLL BARS********************/
+    --scrollbar-color-std-Firefox: rgba(0,0,0,.2) transparent;
+    --scrollbar-width-std-Firefox: auto;
+    --scrollbar-color-std-Chromium: rgba(0, 0, 0, 0.1);
+    --scrollbar-color-hover-Chromium: rgba(0, 0, 0, 0.2);
+    --scrollbar-width-std-Chromium: 8px;
+    --scrollbar-radius-std-Chromium: 10px;
+
+    /*************WIDGETS********************/
+    /*ALERTS*/
+    --alert-wrapper-background: rgba(168, 168, 168, 0.62);
+    --alert-wrapper-background-blur: 5px;
+    --alert-wrapper-background-Firefox: rgba(224, 224, 224, 0.95);
+    --alert-wrapper-cursor: pointer;
+    --alert-background: var(--base-color);
+    --alert-color: var(--base-color-font);
+    --alert-header-background: var(--base-color);
+    --alert-header-color: var(--base-color-font);
+    --alert-close_button-background: #e7e7e7;
+    --alert-close_button-color: var(--base-color-font);
+    --alert-scrollbar-color-Firefox: var(--scrollbar-color-std-Firefox);
+    --alert-scrollbar-color-Chromium: var(--scrollbar-color-std-Chromium);
+    --alert-tablet-width: 80%;
+    --alert-tablet-heigth: 50%;
+    --alert-movil-width: 80%;
+    --alert-movil-heigth: 70%;
+    /*NOTIFICATIONS*/
+    --notify-font_size: 16px;
+    --notify-margin: 1%;
+    --notify-align: center;
+    --notify_float-top: initial;
+    --notify_float-bottom: 5%;
+    --notify_float-width: 98%;
+    --_aux-notify_float-margin: calc(100% - var(--notify_float-width));
+    --notify_float-margin-left: calc( var(--_aux-notify_float-margin)/ 2);
+    --notify_float-cursor: pointer;
+    /*FULL SCREEN LOADER*/
+    --loader-background: rgba(106, 106, 106, 0.2);
+    --loader-background-blur: 5px;
+    --loader-background-Firefox: rgba(210, 210, 210, 0.93);
+    --loader-size: 25vh;
+    --loader-color1: var(--c-orange3);
+    --loader-color2: var(--c-yellow2);
+    /*MODAL WINDOW*/
+    --modal_header-background: var(--base-color);
+    --modal_header-color: var(--base-color-font);
+    --modal_body-background: var(--base-color);
+    --modal_body-color: var(--base-color-font);
+    --modal-scrollbar-color-Firefox: var(--scrollbar-color-std-Firefox);
+    --modal-scrollbar-color-Chromium: var(--scrollbar-color-std-Chromium);
+}
+
+/*************DARK MODE********************/
+@media(prefers-color-scheme: dark) {
+    :root {
+        /*************FONT********************/
+        --base-color-font: var(--c-gray5);
+        --neutral-color-font: var(--c-gray4);
+        --contrast-color-font: var(--c-gray6);
+        /*************COLORS********************/
+        --base-color: var(--c-black1);
+        --contrast-color: var(--c-gray3);
+        --emphasis-color: var(--c-orange3);
+        --warning-color: var(--c-orange1);
+        --error-color: var(--c-red2);
+        --good-color: var(--c-green1);
+        /*************SHADOWS********************/
+        --el-button-shadow: none;
+        --el-button-hover-shadow: none;
+        --el-button-focus-shadow: none;
+        --el-button-active-shadow: none;
+        --el-primary_button-shadow: none;
+        --el-primary_button-hover-shadow: none;
+        --el-primary_button-focus-shadow: none;
+        --el-primary_button-active-shadow: none;
+        --el-dangerous_button-shadow: none;
+        --el-dangerous_button-hover-shadow: none;
+        --el-dangerous_button-focus-shadow: none;
+        --el-dangerous_button-active-shadow: none;
+        /*************SCROLL BARS********************/
+        --scrollbar-color-std-Firefox: rgb(0, 0, 0) transparent;
+    }
+}

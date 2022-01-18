@@ -1,0 +1,111 @@
+@import "../../buttons.css";
+@import "../../utility-first.css";
+
+
+.c__alert_wrapper {
+    background-color: var(--alert-wrapper-background-Firefox);
+    width:100%;
+    position:fixed;
+    top:0;
+    height: auto;
+    bottom: 0;
+    cursor: var(--alert-wrapper-cursor);
+    display: grid;
+    place-items: center;
+}
+@supports (backdrop-filter: blur()) {
+    .c__alert_wrapper {
+        backdrop-filter: blur(var(--alert-wrapper-background-blur));
+        background-color: var(--alert-wrapper-background);
+    }
+}
+
+.c__alert_wrapper--no_skip {
+    cursor: initial;
+}
+
+.c__alert_wrapper--clear {
+    background-color: var(--c-invisible);
+}
+
+.c__alert {
+    width: 50%;
+    height: 70%;
+    min-height: 95px;
+    background-color: var(--alert-background);
+    color: var(--alert-color);
+    display: grid;
+    grid-template-rows: 40px auto 50px;
+    cursor: initial;
+    border-radius: var(--border-radius-std);
+    position: absolute;
+}
+
+.c__alert__header {
+    display: grid;
+    place-items: center;
+    grid-template-columns: auto 30px;
+    padding: 1%;
+    background-color: var(--alert-header-background);
+    color: var(--alert-header-color);
+    border-radius: var(--border-radius-std) var(--border-radius-std) 0 0;
+}
+
+.c__alert__header button {
+    background-color: var(--alert-close_button-background);
+    color: var(--alert-close_button-color);
+}
+
+.c__alert__header--no_skip {
+    grid-template-columns: 100% 0;
+}
+
+.c__alert__header p {
+    font-size: 22px;
+}
+
+.c__alert__button {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+.c__alert__body {
+    height: 100%;
+    width: 100%;
+    overflow-y: auto;
+    scrollbar-color: var(--alert-scrollbar-color-Firefox);
+
+}
+
+.c__alert__body::-webkit-scrollbar-thumb {
+    background: var(--alert-scrollbar-color-Chromium);
+}
+
+.c__alert__buttons {
+    display: inline-flex;
+    align-items: center;
+    padding: 1%;
+    justify-content: stretch;
+}
+
+.c__alert__buttons button {
+    margin: 1%;
+    width: -moz-available;
+    width: -webkit-fill-available;
+    width: stretch;
+}
+
+@media(max-width:900px){
+    .c__alert {
+        width: var(--alert-tablet-width);
+        height: var(--alert-tablet-heigth);
+    }
+}
+
+@media(max-width:500px){
+    .c__alert {
+        width: var(--alert-movil-width);
+        height: var(--alert-movil-heigth);
+    }
+}

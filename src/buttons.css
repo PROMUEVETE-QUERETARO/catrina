@@ -1,0 +1,98 @@
+
+.c__button {
+    font-family: var(--default-font);
+    padding: var(--padding-std);
+    min-height: var(--el-button-min_height);
+    border: var(--el-button-std-border);
+    border-radius:var(--border-radius-std);
+    white-space: var(--el-button-white_space);
+    overflow: var(--el-button-overflow);
+    text-overflow: var(--el-button-text_overflow);
+    background-color: var(--contrast-color);
+    box-shadow: var(--el-button-shadow);
+    color: var(--el-button-std-color);
+}
+
+.c__button:hover {
+    background-color: var(--el-button-hover-background);
+    cursor: var(--el-button-std-cursor);
+    text-decoration: var(--el-button-hover-text_decoration);
+    box-shadow: var(--el-button-hover-shadow);
+}
+
+.c__button:focus {
+    background-color: var(--el-button-focus-background);
+    text-decoration: var(--el-button-focus-text_decoration);
+    box-shadow: var(--el-button-focus-shadow);
+    outline: var(--el-button-focus-outline);
+}
+
+.c__button:active {
+    background-color: var(--el-button-active-background);
+    text-decoration: var(--el-button-active-text_decoration);
+    box-shadow: var(--el-button-active-shadow);
+    outline: var(--el-button-active-outline);
+}
+.c__button:disabled {
+    background-color: var(--el-button-disabled-background);
+    box-shadow: none;
+    cursor: inherit;
+    border: 1px solid var(--contrast-color);
+    color: var(--neutral-color-font);
+}
+/*********************/
+
+.c__button--primary {
+    background-color: var(--emphasis-color);
+    color: var(--contrast-color-font);
+    box-shadow: var(--el-primary_button-shadow);
+}
+
+.c__button--primary:hover {
+    background-color: var(--el-primary_button-hover-background);
+    cursor: var(--el-button-std-cursor);
+    text-decoration: var(--el-button-hover-text_decoration);
+    box-shadow: var(--el-primary_button-hover-shadow);
+}
+
+.c__button--primary:focus {
+    background-color: var(--el-primary_button-focus-background);
+    text-decoration: var(--el-button-focus-text_decoration);
+    box-shadow: var(--el-primary_button-focus-shadow);
+    outline: var(--el-primary_button-focus-outline);
+}
+
+.c__button--primary:active {
+    background-color: var(--el-primary_button-active-background);
+    text-decoration: var(--el-button-active-text_decoration);
+    box-shadow: var(--el-primary_button-active-shadow);
+    outline: var(--el-primary_button-active-outline);
+}
+
+.c__button--dangerous {
+    background-color: var(--error-color);
+    color: var(--contrast-color-font);
+    box-shadow: var(--el-dangerous_button-shadow);
+}
+
+
+.c__button--dangerous:hover {
+    background-color: var(--el-dangerous_button-hover-background);
+    cursor: var(--el-button-std-cursor);
+    text-decoration: var(--el-button-hover-text_decoration);
+    box-shadow: var(--el-dangerous_button-hover-shadow);
+}
+
+.c__button--dangerous:focus {
+    background-color: var(--el-dangerous_button-focus-background);
+    text-decoration: var(--el-button-focus-text_decoration);
+    box-shadow: var(--el-dangerous_button-focus-shadow);
+    outline: var(--el-dangerous_button-focus-outline);
+}
+
+.c__button--dangerous:active {
+    background-color: var(--el-dangerous_button-active-background);
+    text-decoration: var(--el-button-active-text_decoration);
+    box-shadow: var(--el-dangerous_button-active-shadow);
+    outline: var(--el-dangerous_button-active-outline);
+}

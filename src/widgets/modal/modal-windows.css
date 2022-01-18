@@ -1,0 +1,39 @@
+.c__modal {
+    position: fixed;
+    top: 0;
+    display: grid;
+    grid-template-rows: 50px auto;
+    height: 100%;
+    width: 100%;
+}
+.c__modal__header {
+    display: grid;
+    grid-template-columns: 50px auto;
+    width: 100%;
+    background-color: var(--modal_header-background);
+    color: var(--modal_header-color);
+    height: 100%;
+    place-items: center;
+    padding: 3px;
+}
+
+.c__modal__btn {
+    width: 95%;
+    height: 95%;
+}
+
+.c__modal__title {
+    display: inline-grid;
+}
+
+.c__modal__body {
+    background-color: var(--modal_body-background);
+    color: var(--modal_body-color);
+    height: 100%;
+    width: 100%;
+    overflow-y: auto;
+    scrollbar-color: var(--modal-scrollbar-color-Firefox);
+}
+.c__modal__body::-webkit-scrollbar-thumb {
+    background-color: var(--modal-scrollbar-color-Chromium);
+}

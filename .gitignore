@@ -1,0 +1,7 @@
+# IDE's
+.idea
+.vscode
+
+# ts result
+src/*.js
+src/widgets/*/*.js

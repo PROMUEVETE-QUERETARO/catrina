@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="es"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="shortcut icon" href="https://apps.promuevete.mx/images/icon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./example.css"/>
+    <script type="module" src="./example.js"></script>
+    <title>Catrina Example</title>
+
+</head>
+<body>
+    <h1 class="_width_100p _center_align _padding_10px">Catrina Example</h1>
+    <div class="_simple_box _width_100p _padding_1p">This page is building with <a href="https://github.com/PROMUEVETE-QUERETARO/catrina">Catrina Library</a>.
+        This example contains the native items who are modified with Catrina and custom items
+        named <a href="#Widgets">Widgets</a>.</div>
+
+    <h2 id="Native Items" class="_margin_1p">Native Items</h2>
+    <h3 id="Buttons" class="_margin_1p">Buttons</h3>
+    <div id="buttons-container">
+        <button class="c__button _font_16px _margin_1p" disabled>Button Disabled</button>
+        <button class="c__button _font_16px _width_150px _margin_1p">Button</button>
+        <button class="c__button c__button--primary _font_16px _margin_1p">Primary Button</button>
+        <button class="c__button c__button--dangerous _font_16px _margin_1p">Dangerous Button</button>
+    </div>
+    <div id="codebox1" class="_padding_std"></div>
+    <h3 id="Inputs" class="_margin_1p">Inputs</h3>
+    <form class="_padding_1p _font_19px">
+        <h4>Like text inputs</h4>
+        <div class="c__input_box _width_30p">
+            <label for="text" class="c__label_required">Text Input</label>
+            <input id="text" class="c__input_std" type="text" placeholder="Write anything" required>
+        </div>
+        <div class="c__input_box _width_30p">
+            <label for="disabled-text" class="c__label">Disabled Input</label>
+            <input id="disabled-text" class="c__input_std" type="text" disabled>
+        </div>
+        <div class="c__input_box _width_30p">
+            <label>email</label>
+            <input class="c__input_std" type="email">
+        </div>
+        <div class="c__input_box _width_30p">
+            <label>select</label>
+            <select class="c__input_std">
+                <optgroup label="A">
+                    <option value=""></option>
+                </optgroup>
+                <optgroup label="B">
+                    <option value="option 1">Option 1</option>
+                    <option value="option 2">Option 2</option>
+                    <option value="option 3">Option 3</option>
+                </optgroup>
+            </select>
+        </div>
+        <div class="c__input_box-inline _width_30p">
+            <label>number</label>
+            <input class="c__input_std" type="number">
+        </div>
+        <div class="c__input_box-inline _width_30p">
+            <label>password</label>
+            <input class="c__input_std" type="password">
+        </div>
+        <div class="c__input_box-inline _width_30p">
+            <label>search</label>
+            <input class="c__input_std" type="search">
+        </div>
+        <div class="c__input_box _width_30p">
+            <label>tel</label>
+            <input class="c__input_std" type="tel">
+        </div>
+
+        <div class="c__input_box _width_30p">
+            <label>url</label>
+            <input class="c__input_std" type="url">
+        </div>
+
+        <h4>Buttons</h4>
+        <div>
+            <input class="c__button" type="reset">
+            <input type="button" value="Button" class="c__button">
+            <input class="c__button" type="submit">
+        </div>
+
+        <h4>Time inputs</h4>
+
+        <div class="c__input_box _width_30p">
+            <label>time</label>
+            <input class="c__input_std" type="time">
+        </div>
+        <div class="c__input_box _width_30p">
+            <label>date</label>
+            <input class="c__input_std" type="date">
+        </div>
+        <div class="c__input_box _width_30p">
+            <label>datetime-local</label>
+            <input class="c__input_std" type="datetime-local">
+        </div>
+
+
+        <h4>Non standard inputs</h4>
+        <p class="_font_15px _italic_font"><span class="_bold_font">Warning: </span>This inputs only available in Chromium based browsers</p>
+        <div class="c__input_box _width_30p">
+            <label>week</label>
+            <input class="c__input_std" type="week">
+        </div>
+        <div class="c__input_box _width_30p">
+            <label>month</label>
+            <input class="c__input_std" type="month">
+        </div>
+        <h4>Other inputs</h4>
+        <div class="c__input_box _width_30p">
+            <label>color</label>
+            <input class="c__input_color _square_30px" type="color">
+        </div>
+        <div class="c__input_box _width_30p">
+            <label>range</label>
+            <input class="c__input_range" type="range">
+        </div>
+
+
+        <h4>Non-native inputs</h4>
+        <p>For now, these inputs cannot be customized with standard CSS.
+            For this reason, Catrina includes non-native versions for those entries.</p>
+
+        <div>
+            <div id="checkbox-container" class="c__input_box-inline _width_30p">
+                <label class="c__label" for="checkbox">Checkbox</label>
+                <label for="checkbox" class="c__input_checkbox">
+                    <input id="checkbox" type="checkbox">
+                    <span class="c__input_checkbox__checkmark"></span>
+                </label>
+            </div>
+            <div id="codebox15"></div>
+        </div>
+        <div>
+            <div id="radio-container">
+                <label class="c__label" for="radio1">Radio</label>
+                <label for="radio1" class="c__input_radio">
+                    <input id="radio1" name="radio" type="radio">
+                    <span class="c__input_radio__checkmark"></span>
+                </label>
+                <label class="c__label" for="radio2">Radio</label>
+                <label for="radio2" class="c__input_radio">
+                    <input id="radio2" name="radio" type="radio">
+                    <span class="c__input_radio__checkmark"></span>
+                </label>
+            </div>
+            <div id="codebox16"></div>
+        </div>
+        <div>
+            <div id="file-container" class="c__input_box _width_30p">
+                <label for="file" class="c__label">file</label>
+                <label class="c__button _font_12px _height_35px _width_50p _place_items_center" for="file">
+                    Search File...
+                    <input id="file" type="file" class="_hidden">
+                </label>
+            </div>
+            <div id="codebox17"></div>
+        </div>
+    </form>
+
+    <h3 id="Tables" class="_margin_1p">Tables</h3>
+    <div id="table-container" class="_font_19px _padding_std">
+        <table class="c__table _nowrap" >
+            <caption class="_bold_font">Supported Browsers</caption>
+            <thead>
+                <tr class="_pre-line">
+                    <th>Browser</th>
+                    <th>Minimal support version</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th><i class="icon-chrome"></i> Chrome</th>
+                    <td>81</td>
+                </tr>
+                <tr>
+                    <th><i class="icon-chrome"></i> Chromium </th>
+                    <td>81</td>
+                </tr>
+                <tr>
+                    <th><i class="icon-firefox"></i> Firefox</th>
+                    <td>72</td>
+                </tr>
+                <tr>
+                    <th><i class="icon-safari"></i> Safari</th>
+                    <td>13</td>
+                </tr>
+                <tr>
+                    <th><i class="icon-IE"></i> IE</th>
+                    <td>Unsupported</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div id="codebox18" class="_font_12px _padding_std"></div>
+    <h2 id="Widgets" class="_margin_1p">Widgets</h2>
+    <div class="_padding_std">
+        <button id="run-alert" class="c__button">Simple Alert</button>
+        <template id="alert1-content">
+            <p class="_padding_std _block">A most simple version for Alert. Use this configuration if you don't need user interaction,
+                for example, notices of low importance. This Alert will closing if the user will click in the cross button or in the Alert's shadow.</p>
+            <p class="_padding_std _block">You can custom colors with a <span class="_color_emphasis _bold_font">config.css</span> file.</p>
+            <h2 class="_padding_std">Javascript Example Code:</h2>
+            <div class="_padding_std">
+                <code>import * as catrina from "catrina/catrina.js";</code><br>
+                <code>catrina.Alert({title: 'Alert Widget', content: `${alert-content}`, buttons: []})</code>
+            </div>
+
+        </template>
+    </div>
+    <div class="_padding_std">
+        <button id="run-alert-no-skip" class="c__button">Two buttons Alert</button>
+        <template id="alert2-content">
+            <div class="_padding_std">
+                <p>Use this Alert type if you want force the user's answer.</p>
+                <p>In this Alert, a notification will be launched according to the button that the user clicks.</p>
+            </div>
+            <h2 class="_padding_std">Javascript Example Code:</h2>
+            <pre class="_padding_std _overflowX _margin_10px _font_17px">
+import * as catrina from "catrina/catrina.js";
+
+let button = catrina.PrimaryButton('', 'Accept'),
+    button2 = catrina.DangerousButton('', 'Refuse');
+
+let alert = catrina.Alert({title: 'Non-skipped Alert', content: `${alert-content}`, buttons: [button, button2], skip: false});
+
+button.onclick = ()=> {
+    catrina.FloatNotify(catrina.notifyType.Good, 'Accept button clicked', 3000);
+    alert.content.remove();
+    alert.shadow.remove();
+}
+button2.onclick = ()=> {
+    catrina.FloatNotify(catrina.notifyType.Error, 'Refuse button clicked', 3000);
+    alert.content.remove();
+    alert.shadow.remove();
+}
+            </pre>
+        </template>
+    </div>
+    <div class="_padding_std">
+        <button id="loader-btn" class="c__button">Full Screen Loader (10 sec)</button>
+    </div>
+    <div class="_padding_std">
+        <button id="modal-btn" class="c__button">Modal Window</button>
+        <template id="modal-content">
+            <div class="_padding_std">
+                <p>The modal window is the most personalizable widget. You can capture the button event and
+                    can access the modal's body directly.
+                </p>
+                <p>This widget is recommended if you want capture all attention in a new content.
+                    It's uselly for Single Page Applications.
+                </p>
+                <h2 class="_padding_std">Javascript Example Code:</h2>
+                <pre class="_padding_std _overflowX _margin_10px _font_17px">
+import * as catrina from "catrina/catrina.js";
+
+// Set window's title and button CSS class for arguments
+let modal = catrina.Modal('Modal Window', 'c__button _no_shadows');
+
+// You can access the modal's body directly
+modal.body.appendChild(document.querySelector('#modal-content').content.cloneNode(true));
+
+// Set button events.
+modal.btn.addEventListener('click', ()=>{
+    // If you want delete the modal, use this function
+    catrina.CloseModal(modal.modal);
+    catrina.FloatNotify(catrina.notifyType.Good, 'Modal Closed', 3000)
+});
+            </pre>
+            </div>
+        </template>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,60 @@
+.c__table {
+    empty-cells: var(--el-table-empty_cells);
+    border-spacing: var(--el-table-border_spacing);
+    border-collapse: var(--el-table-border_collapse);
+}
+
+.c__table__caption--top {
+    caption-side: top;
+}
+
+.c__table__caption--bottom {
+    caption-side: bottom;
+}
+
+.c__table td, .c__table th, .c__table caption {
+    padding: var(--el-rows-std-padding);
+    border-radius: var(--el-rows-std-border_radius);
+    box-shadow: var(--el-rows-std-shadow);
+    margin: var(--el-rows-std-margin);
+    vertical-align: var(--el-rows-std-vertica-align);
+
+}
+
+.c__table caption {
+    background-color: var(--el-caption-background);
+    color: var(--el-caption-color);
+    text-align: var(--el-caption-align);
+}
+
+.c__table thead td, .c__table thead th{
+    background-color: var(--el-thead-td-background);
+    color: var(--el-thead-td-color);
+    text-align: var(--el-thead-td-align);
+    border-top: var(--el-thead-td-border-top);
+    border-right: var(--el-thead-td-border-right);
+    border-bottom: var(--el-thead-td-border-bottom);
+    border-left: var(--el-thead-td-border-left);
+    border-radius: var(--el-thead-td-border-radius);
+}
+
+.c__table tbody td {
+    background-color: var(--el-tbody-td-background);
+    color: var(--el-tbody-td-color);
+    text-align: var(--el-tbody-td-align);
+    border-top: var(--el-tbody-td-border-top);
+    border-right: var(--el-tbody-td-border-right);
+    border-bottom: var(--el-tbody-td-border-bottom);
+    border-left: var(--el-tbody-td-border-left);
+    border-radius: var(--el-tbody-td-border-radius);
+}
+.c__table tbody th {
+    background-color: var(--el-tbody-th-background);
+    color: var(--el-tbody-th-color);
+    text-align: var(--el-tbody-th-align);
+    border-top: var(--el-tbody-th-border-top);
+    border-right: var(--el-tbody-th-border-right);
+    border-bottom: var(--el-tbody-th-border-bottom);
+    border-left: var(--el-tbody-th-border-left);
+    border-radius: var(--el-tbody-th-border-radius);
+}

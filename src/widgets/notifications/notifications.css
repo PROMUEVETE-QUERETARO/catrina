@@ -1,0 +1,20 @@
+.c__notification {
+    font-size: var(--notify-font_size);
+    padding: var(--padding-std);
+    border-radius: var(--border-radius-std);
+    margin: var(--notify-margin);
+    text-align: var(--notify-align);
+}
+
+.c__notification--float {
+    display: grid;
+    position: fixed;
+    place-items: center;
+    width: var(--notify_float-width);
+    margin-left: var(--notify_float-margin-left);
+    box-shadow: var(--c-shadow-disperse-ligth);
+    border-radius: var(--border-radius-std);
+    cursor: var(--notify_float-cursor);
+    top: var(--notify_float-top);
+    bottom: var(--notify_float-bottom);
+}
