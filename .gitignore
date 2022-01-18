@@ -3,4 +3,5 @@
 .vscode
 
 # ts result
-widgets/*.js
+src/*.js
+src/widgets/*/*.js

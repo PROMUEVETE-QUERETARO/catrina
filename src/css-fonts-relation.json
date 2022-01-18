@@ -1,11 +1,11 @@
 [
   {
     "name": "armata.css",
-    "path": "catrina/fonts/Armata.woff2"
+    "path": "fonts/Armata.woff2"
   },
   {
     "name": "niramit.css",
-    "path": "catrina/fonts/Niramit.ttf"
+    "path": "fonts/Niramit.ttf"
   },
   {
     "name": "font-awesome.css",

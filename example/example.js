@@ -1,4 +1,4 @@
-import * as catrina from "../widgets/catrina.js";
+import * as catrina from "../src/catrina.js";
 
 const SHOW_LABEL = "Show code";
 

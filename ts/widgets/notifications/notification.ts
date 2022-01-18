@@ -1,4 +1,4 @@
-import {asyncRemove} from "../core.js";
+import {asyncRemove} from "../../catrina";
 
 export function FloatNotify(type: notifyType, content: string, milliseconds: number) {
     let n = Notify({type: type, content: content, isFloat: true});

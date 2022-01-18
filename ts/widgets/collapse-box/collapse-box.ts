@@ -1,4 +1,4 @@
-import {HIDDEN_CLASS} from "../core.js";
+import {HIDDEN_CLASS} from "../../catrina";
 
 export function CollapseBox(node: HTMLElement, content: string, header:string, idSwitch: string) {
     node.innerHTML =

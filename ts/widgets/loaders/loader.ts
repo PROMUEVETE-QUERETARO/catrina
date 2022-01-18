@@ -1,4 +1,4 @@
-import {asyncRemove} from "../core.js";
+import {asyncRemove} from "../../catrina";
 
 export function LoaderStart():HTMLElement {
     let wrapper = document.createElement('div');
