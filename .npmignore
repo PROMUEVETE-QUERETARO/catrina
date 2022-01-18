@@ -6,4 +6,5 @@
 example
 
 # TS files
-tsc
+ts
+tsconfig.json
