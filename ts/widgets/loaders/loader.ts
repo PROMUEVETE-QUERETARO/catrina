@@ -1,4 +1,4 @@
-import {asyncRemove} from "../../catrina";
+import {asyncRemove} from "../../catrina.js";
 
 export function LoaderStart():HTMLElement {
     let wrapper = document.createElement('div');
